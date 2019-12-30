@@ -2,14 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/.../angular.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--js-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
     <script src="/js/controller.js"></script>
+    <!--css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/index.css">
     <title>호북 게임즈</title>
 </head>
 <body>
-    <div ng-app="app" ng-controller="controller">
-        <button id="btn-id" ng-click="clickfunction()">버튼 클릭</button>
-        <p ng-bind="welcome"></p>
+    <div class="wrapper" ng-app="app">
+        <!-- 탑 레이아웃 -->
+        <header>
+            <p>탑 레이아웃 영역입니다</p>
+        </header>
+        <!-- 메인 레이아웃 -->
+        <div class="main">
+            <section class="scene one">
+                <h1>
+                    ipsum Lorem dolor sit.
+                </h1>
+                Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit.
+            </section>
+            <section class="scene two">
+                <h1>
+                    ipsum Lorem dolor sit.
+                </h1>
+                Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit.
+            </section>
+            <section class="scene three">
+                <h1>
+                    ipsum Lorem dolor sit.
+                </h1>
+                Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit.
+            </section>
+
+        </div>
+        <!-- 바텀 레이아웃 -->
+        <footer class="bottom">
+            <p>바텀 레이아웃 영역입니다</p>
+        </footer>
+        <nav>
+            <p>네비게이션 레이아웃 영역입니다</p>
+        </nav>
     </div>
+    <!-- 네비 레이아웃 -->
 </body>
 </html>

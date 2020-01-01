@@ -6,17 +6,20 @@
     <!--js-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="/js/controller.js"></script>
     <script src="/js/loading.js"></script>
 
     <!--css-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.css" />
     <link rel="stylesheet" href="/css/index.css">
     <link rel="shortcut icon" href="favicon.ico">
     <title>호북 게임즈</title>
 </head>
 <body>
+
     <!-- 로딩 화면 -->
     <div class="loader">
         <div id="loading_image">
@@ -44,33 +47,33 @@
             </ul>
             <ul class="top_menu_list">
                 <li>
-                   <a href="#">About</a>
+                    <a class="menu_click" href="about">About</a>
                 </li>
                 <li>
-                    <a href="#">Works</a>
+                    <a class="menu_click" href="works">Works</a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a class="menu_click" href="contact">Contact</a>
                 </li>
             </ul>
         </header>
         <!-- 메인 레이아웃 -->
         <div class="main">
-            <section class="scene one">
+            <section class="scene one" id="about">
                 <h1>
                     ipsum Lorem dolor sit.
                 </h1>
                 Lorem ipsum dolor sit amet,
                 consectetur adipisicing elit.
             </section>
-            <section class="scene two">
+            <section class="scene two" id="works">
                 <h1>
                     ipsum Lorem dolor sit.
                 </h1>
                 Lorem ipsum dolor sit amet,
                 consectetur adipisicing elit.
             </section>
-            <section class="scene three">
+            <section class="scene three" id="contact">
                 <h1>
                     ipsum Lorem dolor sit.
                 </h1>
@@ -83,11 +86,11 @@
         <footer class="bottom">
             <p>바텀 레이아웃 영역입니다</p>
         </footer>
+        <!-- 네비 레이아웃 -->
         <nav>
             <p>네비게이션 레이아웃 영역입니다</p>
         </nav>
     </div>
-    <!-- 네비 레이아웃 -->
 
     <!-- js -->
     <script src="/js/menu.js"></script>

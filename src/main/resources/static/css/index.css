@@ -11,6 +11,7 @@ body {
     min-width: 100%;
     min-height: 100%;
 
+
 }
 
 p{
@@ -64,12 +65,103 @@ p{
 }
 
 header{
+    position: fixed;
     min-width: 100%;
     height: 100px;
+    justify-content: space-between;
     border: 2px solid yellow;
 }
 
+.top_icon_list{
+    height: 100px;
+    line-height: 100px;
+    border: 2px solid black;
+    width: 30vw;
+    list-style: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+.top_icon_list li{
+    float: left;
+}
+.top_icon_list li a{
+    margin-right: 20px;
+}
+
+
+.menu-trigger,
+.menu-trigger span {
+    display: inline-block;
+    transition: all .4s;
+    box-sizing: border-box;
+}
+
+.menu-trigger {
+    position: relative;
+    width:25px;
+    height: 22px;
+}
+
+.menu-trigger span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.menu-trigger span:nth-of-type(1) {
+    top: 5px;
+}
+
+.menu-trigger span:nth-of-type(2) {
+    top: 15px;
+}
+
+.menu-trigger span:nth-of-type(3) {
+    top: 25px;
+}
+.menu-trigger.active {
+    -webkit-transform : rotate(360deg);
+    transform : rotate(360deg);
+}
+.menu-trigger.active span:nth-of-type(1),
+.menu-trigger.active span:nth-of-type(3) {
+    width : 10px;
+}
+.menu-trigger.active span:nth-of-type(1) {
+    -webkit-transform : translate(-1px, 7px) rotate(-45deg);
+    transform : translate(-1px, 7px) rotate(-45deg);
+}
+.menu-trigger.active span:nth-of-type(3) {
+    -webkit-transform : translate(-1px, -7px) rotate(45deg);
+    transform : translate(-1px, -7px) rotate(45deg);
+}
+
+.top_menu_list{
+    border: 2px solid black;
+    display: inline-block;
+    vertical-align: middle;
+    height: 100px;
+    line-height: 100px;
+    width: 50vw;
+    float: right;
+    list-style: none;
+}
+.top_menu_list li{
+    float:left;
+}
+.top_menu_list li a{
+    color: #F0F0F0;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-right: 32px;
+}
+
 .main{
+    padding-top: 100px;
     display: block;
     min-width: 100%;
     border: 2px solid red;

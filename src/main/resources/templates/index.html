@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--js-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="/js/controller.js"></script>
     <script src="/js/loading.js"></script>
+
     <!--css-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="shortcut icon" href="favicon.ico">
     <title>호북 게임즈</title>
 </head>
 <body>
@@ -20,6 +23,7 @@
 
         </div>
     </div>
+    <!-- 메인 화면 -->
     <div class="container" ng-app="app">
         <video id="videobcg" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
             <source src="/video/background_movie.mp4" type="video/mp4">
@@ -27,7 +31,28 @@
         </video>
         <!-- 탑 레이아웃 -->
         <header>
-            <p>탑 레이아웃 영역입니다</p>
+            <ul class="top_icon_list">
+                <li>
+                    <a class="menu-trigger" href="#">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </li>
+                <li><a href="http://localhost:8080/"><img src="/img/logo_32x32.png" alt="로고 이미지"></a></li>
+                <li><a href="#">BLOG</a></li>
+            </ul>
+            <ul class="top_menu_list">
+                <li>
+                   <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Works</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
         </header>
         <!-- 메인 레이아웃 -->
         <div class="main">
@@ -63,5 +88,8 @@
         </nav>
     </div>
     <!-- 네비 레이아웃 -->
+
+    <!-- js -->
+    <script src="/js/menu.js"></script>
 </body>
 </html>

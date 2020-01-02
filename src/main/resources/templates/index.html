@@ -12,7 +12,7 @@
 
     <!--css-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.0/css/all.css">
     <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.css" />
     <link rel="stylesheet" href="/css/index.css">
     <link rel="shortcut icon" href="favicon.ico">
@@ -33,7 +33,7 @@
             Sorry, your browser does not support HTML5 video.
         </video>
         <!-- 탑 레이아웃 -->
-        <header>
+        <header class="header">
             <ul class="top_icon_list">
                 <li>
                     <a class="menu-trigger" href="#">
@@ -43,14 +43,14 @@
                     </a>
                 </li>
                 <li><a href="http://localhost:8080/"><img src="/img/logo_32x32.png" alt="로고 이미지"></a></li>
-                <li><a href="#">BLOG</a></li>
+                <li><a href="http://blog.naver.com/pkh879" target="_blank" style="color:white; font-size: 24px;text-decoration: none;font-weight: bold;">Blog</a></li>
             </ul>
             <ul class="top_menu_list">
                 <li>
-                    <a class="menu_click" href="about">About</a>
+                    <a class="menu_click" href="works">Works</a>
                 </li>
                 <li>
-                    <a class="menu_click" href="works">Works</a>
+                    <a class="menu_click" href="about">About</a>
                 </li>
                 <li>
                     <a class="menu_click" href="contact">Contact</a>
@@ -59,20 +59,103 @@
         </header>
         <!-- 메인 레이아웃 -->
         <div class="main">
-            <section class="scene one" id="about">
-                <h1>
-                    ipsum Lorem dolor sit.
-                </h1>
-                Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.
+            <div class="start">
+                <h1>Game Developer</h1>
+                <h3>Gyeongho Park</h3>
+                <h1>'호북 게임즈'에 방문해 주셔서 감사합니다.</h1>
+            </div>
+            <section class="scene one" id="works">
+                <div id="slider_wrapper">
+                    <div id="slider-wrap">
+                        <ul id="slider">
+                            <li data-color="#1abc9c">
+                                <div>
+                                    <h3>푸시 큐브 - 상자 밀기 퍼즐</h3>
+                                    <span>게임 소개</span>
+                                    <p>'푸시 큐브'는 슬라이드 조작으로 어디서나 심플하게 즐길 수 있는 소코반 형식의 상자 밀기 퍼즐 입니다. </p>
+                                </div>
+                                <iframe style="display: inline-block; margin-top:180px;" width="640" height="360" src="https://www.youtube.com/embed/CsW758NgrFY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <br/><button type="button" class="btn btn-primary">자세히 보기</button>
+                            </li>
+
+                            <li data-color="#3498db">
+                                <div>
+                                    <h3>플랫 히어로즈</h3>
+                                    <span>게임 소개</span>
+                                    <p>'플랫 히어로즈'는 여러 영웅들을 모아 성장시켜 적들을 무찌르는 방치형 RPG 게임 입니다.</p>
+                                </div>
+                                <iframe style="display: inline-block; margin-top:180px;" width="640" height="360" src="https://www.youtube.com/embed/ZgJj51aOMvE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <<br/>button type="button" class="btn btn-primary">자세히 보기</button>
+                            </li>
+
+                            <li data-color="#9b59b6">
+                                <div>
+                                    <h3>라이피 - 힐링인생게임</h3>
+                                    <span>게임 소개</span>
+                                    <p>'라이피'는 직장생활과 여행을 통해 주인공을 성장시키는 힐링 육성 시뮬레이션 게임입니다.</p>
+                                </div>
+                                <iframe style="display: inline-block; margin-top:180px;" width="640" height="360" src="https://www.youtube.com/embed/R6od9USvgU8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <br/><button type="button" class="btn btn-primary">자세히 보기</button>
+                            </li>
+                        </ul>
+
+                        <!--controls-->
+                        <div class="btns" id="next"><i class="fa fa-arrow-right"></i></div>
+                        <div class="btns" id="previous"><i class="fa fa-arrow-left"></i></div>
+                        <div id="counter"></div>
+
+                        <div id="pagination-wrap">
+                            <ul>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
             </section>
-            <section class="scene two" id="works">
-                <h1>
-                    ipsum Lorem dolor sit.
-                </h1>
-                Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.
+            <section class="scene two" id="about">
+                <div class="scene_about" id="scene_profile">
+                    <h3>Profile</h3>
+                    <img src="/img/profile.png" width="120" height="160" alt="프로필사진"/>
+                    <h4>박 경 호</h4>
+                    <p>Game Programmer</p>
+                    <p>1993.09.17</p>
+                    <p>+82 010-2925-6878</p>
+                    <p>pkh879@gmail.com</p>
+                </div>
+                <div class="scene_about" id="scene_education">
+                    <h3>Education</h3>
+                    <ul style="list-style: none">
+                        <li>
+                            <span>경상대학교</span>
+                            <span>경영정보학 전공</span>
+                            <p>2013.03 - 2018.02</p>
+                        </li>
+                        <li>
+                            <span>엔에스이</span>
+                            <span>ALM 솔루션 모듈 개발자</span>
+                            <p>2018.04 - 2018.12</p>
+                        </li>
+                        <li>
+                            <span>호북 게임즈</span>
+                            <span>1인 게임 개발자</span>
+                            <p>2019.01 - 현재</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="scene_about" id="scene_skill">
+                    <h3>Skill</h3>
+                    <ul>
+                        <li><img width="80" height="80" src="/img/skill_csharp.png"/><p>C#</p><p></p>2012~2020</p></li>
+                        <li><img width="80" height="80" src="/img/skill_java.png"/><p>Java</p><p>2015~2017</p></li>
+                        <li><img width="80" height="80" src="/img/skill_html.png"/><p>Html/Js/Css</p><p>2016~2019</p></li>
+                        <li><img width="80" height="80" src="/img/skill_jsp.png"/><p>JSP</p><p>2016~2017</p></li>
+                        <li><img width="80" height="80" src="/img/skill_mssql.png"/><p>Mssql</p><p>2016~2018</p></li>
+                        <li><img width="80" height="80" src="/img/skill_android.png"/><p>Android Studio</p><p> 2017~2018</p></li>
+                        <li><img width="80" height="80" src="/img/skill_unity.png"/><p>Unity Engine</p><p>2018~2020</p></li>
+                    </ul>
+                </div>
             </section>
+
             <section class="scene three" id="contact">
                 <h1>
                     ipsum Lorem dolor sit.
@@ -87,8 +170,19 @@
             <p>바텀 레이아웃 영역입니다</p>
         </footer>
         <!-- 네비 레이아웃 -->
-        <nav>
-            <p>네비게이션 레이아웃 영역입니다</p>
+        <nav class="nav">
+            <div class="nav_content">
+                <ul>
+                    <li><a class="nav_item" href="works"><i class="fas fa-gamepad"></i><p>Works</p></a></li>
+                    <li><a class="nav_item" href="about"><i class="fas fa-address-card"></i><p>About</p></a></li>
+                    <li><a class="nav_item" href="contact"><i class="fas fa-mail-bulk"></i><p>Contact</p></a></li>
+                </ul>
+                <div class="contact">
+                    <p class="contact_info" style="color:#F0F0F0; font-weight: bold">박경호</p>
+                    <p class="contact_info" style="color:#B0B0B0;">Game Developer | Programmer</p>
+                    <p class="contact_info" style="color:#B0B0B0;">pkh879@gmail.com</p>
+                </div>
+            </div>
         </nav>
     </div>
 

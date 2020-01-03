@@ -60,6 +60,8 @@ $(".menu_click, .nav_item").on("click", function (e) {
         moveTarget.animate({top:-topPos+30},500);
     }
     moveTarget.animate({top:-topPos},500);
+    $('.header').removeClass('shrink');
+    $('.header').addClass('shrink');
 
 });
 
@@ -68,6 +70,8 @@ $(window).on('load',(function() {
     $('.container').mCustomScrollbar({
         theme: "minimal-dark",
         axis:"y",
+        mouseWheelPixels : 300, // 마우스휠 속도
+        scrollInertia : 500
     });
 }));
 
@@ -134,7 +138,7 @@ $(document).ready(function(){
     //hide/show controls/btns when hover
     //pause automatic slide when hover
     $('#slider-wrap').hover(
-        function(){ $(this).addClass('active'); clearInterval(autoSlider); },
+        function(){ $(this).addClass('active'); /* clearInterval(autoSlider); */},
         function(){ $(this).removeClass('active'); /* 자동 옵션 autoSlider = setInterval(slideRight, 5000);*/}
     );
 
@@ -150,11 +154,20 @@ $(document).ready(function(){
 function slideLeft(){
     pos--;
     if(pos==-1){ pos = totalSlides-1; }
+    SetWorksSlideBackground(pos);
     $('#slider-wrap ul#slider').css('left', -(sliderWidth*pos));
-
     //*> optional
     countSlides();
     pagination();
+}
+
+function SetWorksSlideBackground(pos) {
+    if(pos==1)
+        $('.scene.one').css('background-image', 'url("/img/background_scene1.png")');
+    else if(pos==2)
+        $('.scene.one').css('background-image', 'url("/img/background_scene2.png")');
+    else
+        $('.scene.one').css('background-image', 'url("/img/background_scene3.png")');
 }
 
 
@@ -164,6 +177,7 @@ function slideLeft(){
 function slideRight(){
     pos++;
     if(pos==totalSlides){ pos = 0; }
+    SetWorksSlideBackground(pos);
     $('#slider-wrap ul#slider').css('left', -(sliderWidth*pos));
 
     //*> optional
@@ -185,3 +199,16 @@ function pagination(){
     $('#pagination-wrap ul li').removeClass('active');
     $('#pagination-wrap ul li:eq('+pos+')').addClass('active');
 }
+
+$(".popupVideo a").click(function() {
+    $(".video-popup").addClass("reveal"),
+        $(".video-popup .video-wrapper").remove(),
+        $(".video-popup").append("<div class='video-wrapper'><iframe width='560' height='315' src='https://youtube.com/embed/" + $(this).data("video") + "?rel=0&playsinline=1&autoplay=1' allow='autoplay; encrypted-media' allowfullscreen></iframe></div>")
+}),
+$(".video-popup-closer").click(function() {
+    $(".video-popup .video-wrapper").remove(),
+        $(".video-popup").removeClass("reveal")
+});
+
+
+

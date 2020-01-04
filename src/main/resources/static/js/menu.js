@@ -62,8 +62,36 @@ $(".menu_click, .nav_item").on("click", function (e) {
     moveTarget.animate({top:-topPos},500);
     $('.header').removeClass('shrink');
     $('.header').addClass('shrink');
+    setTimeout(function () {
+        $('#mCSB_1_dragger_vertical').css('top', $('.mCSB_container').position().top * -0.22);
+        var scroll = $('#mCSB_1_dragger_vertical').position().top;
+        ShowScrollAnimation(scroll);
+
+    },500);
+
 
 });
+
+function ShowScrollAnimation(scroll)
+{
+    $('.showAnimation').each( function(i){
+        var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+        var bottom_of_window = scroll + $(window).height();
+
+        /* 3 */
+        if( bottom_of_window > bottom_of_object){
+            $(this).animate({'opacity':'1','margin-left':'0px'},1000);
+        }
+    });
+    $('.showAnimation2').each( function(i){
+        var bottom_of_object = $(this).offset().top+ $(this).outerHeight();
+        var bottom_of_window = scroll+ $(window).height();
+        /* 3 */
+        if( bottom_of_window > bottom_of_object ){
+            $(this).animate({'opacity':'1'},2000);
+        }
+    });
+}
 
 
 $(window).on('load',(function() {
@@ -71,20 +99,22 @@ $(window).on('load',(function() {
         theme: "minimal-dark",
         axis:"y",
         mouseWheelPixels : 300, // 마우스휠 속도
-        scrollInertia : 500
+        scrollInertia : 500,
+        documentTouchScroll : false
     });
 }));
 
 $("div, nav").on('mousewheel DOMMouseScroll',function(e){
+    var scroll = $('#mCSB_1_dragger_vertical').position().top;
     setTimeout(function(e)
     {
-        var scroll = $('#mCSB_1_dragger_vertical').position().top;
         if(scroll >= 30){
             $('.header').addClass('shrink');
         }else{
             $('.header').removeClass('shrink');
         }
     },500);
+    ShowScrollAnimation(scroll);
 });
 
 

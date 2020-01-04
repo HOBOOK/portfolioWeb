@@ -7,6 +7,10 @@
     font-family: nanumgothic;
     src: url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
 }
+@font-face {
+    font-family: utoM;
+    src: url('/fonts/UTOIMAGE_유토이미지고딕_B_TTF');
+}
 
 body {
     -ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;
@@ -24,12 +28,13 @@ p{
 }
 
 .loader{
+
     background-color: #000000;
     position: fixed;
-
-    width: 100vw;
-    height: 100vh;
-    z-index: 1;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
 }
 
 .loader #loading_image
@@ -49,6 +54,15 @@ p{
     animation: spin 2s linear infinite;
 }
 
+.showAnimation {
+    opacity:0;
+    margin-left:-300px;
+    max-width:100%;
+}
+.showAnimation2 {
+    opacity:0;
+
+}
 #videobcg {
     position: fixed;
     top: 0px;
@@ -204,9 +218,12 @@ p{
 }
 .start h1{
     font-size: 100px;
-    background: linear-gradient(to right, coral, white);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-family: utoM;
+    opacity: 0.5;
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
 }
 .start h2{
     margin-top: 100px;
@@ -233,6 +250,7 @@ p{
 
 
 #slider_wrapper{
+    min-height: 100%;
     width:95vw;
     height: 90vh;
     margin:0 auto;
@@ -242,6 +260,7 @@ p{
 }
 
 #slider-wrap{
+    min-height: 100%;
     width:95vw;
     height:90vh;
     position:relative;
@@ -507,6 +526,7 @@ p{
 #scene_skill ul li{
     display: inline-block;
     margin-right: 20px;
+    font-family: utoM;
 }
 
 .scene.three{
@@ -525,7 +545,7 @@ footer{
 footer span{
     color: #A0A0A0;
     font-size: 18px;
-    font-family: nanumgothic;
+    font-family: utoM;
 }
 
 .nav{
@@ -617,6 +637,38 @@ footer span{
     50%{-webkit-transform:translateY(-20px);}
     100%{-webkit-transform:translateY(10px);}
 }
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
 @media ( max-width: 768px ) {
     .top_menu_list
@@ -643,7 +695,7 @@ footer span{
     }
     #scene_education{
         margin-top:30px;
-        width: 49%;
+        width: 33%;
         height: 60%;
     }
     #scene_education li{
@@ -655,7 +707,7 @@ footer span{
     }
     #scene_skill{
         margin-top:20px;
-        width: 49%;
+        width: 66%;
         height: 60%;
         font-size: 10px;
     }

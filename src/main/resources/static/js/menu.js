@@ -92,6 +92,11 @@ function ShowScrollAnimation(scroll)
         }
     });
 }
+function ShowGameInfoTextAnimation()
+{
+    $('.showAnimation').css('opacity','0');
+    $('.showAnimation').animate({'opacity':'1'},1000);
+}
 
 
 $(window).on('load',(function() {
@@ -99,23 +104,23 @@ $(window).on('load',(function() {
         theme: "minimal-dark",
         axis:"y",
         mouseWheelPixels : 300, // 마우스휠 속도
-        scrollInertia : 500,
-        documentTouchScroll : false
+        scrollInertia : 400,
+        documentTouchScroll : false,
+        callbacks:{
+            onScroll:function(){
+                var scroll = $('#mCSB_1_dragger_vertical').position().top;
+                scroll = $('#mCSB_1_dragger_vertical').position().top;
+                if(scroll >= 30){
+                    $('.header').addClass('shrink');
+                }else{
+                    $('.header').removeClass('shrink');
+                }
+                ShowScrollAnimation(scroll);
+            }
+        }
     });
 }));
 
-$("div, nav").on('mousewheel DOMMouseScroll',function(e){
-    var scroll = $('#mCSB_1_dragger_vertical').position().top;
-    setTimeout(function(e)
-    {
-        if(scroll >= 30){
-            $('.header').addClass('shrink');
-        }else{
-            $('.header').removeClass('shrink');
-        }
-    },500);
-    ShowScrollAnimation(scroll);
-});
 
 
 //current position
@@ -125,14 +130,19 @@ var totalSlides = $('#slider-wrap ul li').length;
 //get the slide width
 var sliderWidth = $('#slider-wrap').width();
 
+function SetSlideX()
+{
+    sliderWidth = $('#slider-wrap').width();
+    $('#slider-wrap ul#slider').width(sliderWidth*totalSlides);
+}
 
 $(document).ready(function(){
     /*****************
      BUILD THE SLIDER
      *****************/
     //set width to be 'x' times the number of slides
-    $('#slider-wrap ul#slider').width(sliderWidth*totalSlides);
 
+    SetSlideX();
     //next slide
     $('#next').click(function(){
         slideRight();
@@ -182,32 +192,25 @@ $(document).ready(function(){
  SLIDE LEFT
  ************/
 function slideLeft(){
+    ShowGameInfoTextAnimation();
+    SetSlideX();
     pos--;
     if(pos==-1){ pos = totalSlides-1; }
-    SetWorksSlideBackground(pos);
     $('#slider-wrap ul#slider').css('left', -(sliderWidth*pos));
     //*> optional
     countSlides();
     pagination();
 }
 
-function SetWorksSlideBackground(pos) {
-    if(pos==1)
-        $('.scene.one').css('background-image', 'url("/img/background_scene1.png")');
-    else if(pos==2)
-        $('.scene.one').css('background-image', 'url("/img/background_scene2.png")');
-    else
-        $('.scene.one').css('background-image', 'url("/img/background_scene3.png")');
-}
-
-
 /************
  SLIDE RIGHT
  *************/
 function slideRight(){
+    ShowGameInfoTextAnimation();
+    SetSlideX();
     pos++;
     if(pos==totalSlides){ pos = 0; }
-    SetWorksSlideBackground(pos);
+    //SetWorksSlideBackground(pos);
     $('#slider-wrap ul#slider').css('left', -(sliderWidth*pos));
 
     //*> optional
@@ -238,6 +241,90 @@ $(".popupVideo a").click(function() {
 $(".video-popup-closer").click(function() {
     $(".video-popup .video-wrapper").remove(),
         $(".video-popup").removeClass("reveal")
+});
+
+function formCheck(fr) {
+
+    if(fr.name.value == "") {
+        alert("이름을 입력해 주세요.");
+        fr.name.focus();
+        return false;
+    }
+    else if(fr.email.value == "") {
+        alert("이메일을 입력해 주세요.");
+        fr.email.focus();
+        return false;
+    }
+    else if(fr.message.value == "") {
+        alert("내용을 입력해 주세요.");
+        fr.message.focus();
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
+var TxtType = function(el, toRotate, period) {
+    this.toRotate = toRotate;
+    this.el = el;
+    this.loopNum = 0;
+    this.period = parseInt(period, 10) || 2000;
+    this.txt = '';
+    this.tick();
+    this.isDeleting = false;
+};
+
+TxtType.prototype.tick = function() {
+    var i = this.loopNum % this.toRotate.length;
+    var fullTxt = this.toRotate[i];
+
+    if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+    } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+
+    this.el.innerHTML = '<span class="typewriteWrap">'+this.txt+'</span>';
+
+    var that = this;
+    var delta = 200 - Math.random() * 100;
+
+    if (this.isDeleting) { delta /= 2; }
+
+    if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+    }
+
+    setTimeout(function() {
+        that.tick();
+    }, delta);
+};
+
+window.onload = function() {
+    var elements = document.getElementsByClassName('typewrite');
+    for (var i=0; i<elements.length; i++) {
+        var toRotate = elements[i].getAttribute('data-type');
+        var period = elements[i].getAttribute('data-period');
+        if (toRotate) {
+            new TxtType(elements[i], JSON.parse(toRotate), period);
+        }
+    }
+    // INJECT CSS
+    var css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = ".typewrite > .typewriteWrap { border-right: 0.08em solid #fff}";
+    document.body.appendChild(css);
+};
+
+
+$("#popup").click(function(){
+    $(".thankyou_message").fadeOut();
 });
 
 

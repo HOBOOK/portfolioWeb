@@ -1,3 +1,17 @@
+$(window).on('load',(function() {
+    setTimeout(scrollTo, 0, 0, 1);
+}));
+
+window.addEventListener('load', function() {
+    // body의 height를 살짝 늘리는 코드
+    document.body.style.height = (document.documentElement.clientHeight + 5) + 'px';
+    // scroll를 제어 하는 코드
+    setTimeout(scrollTo, 0, 0, 1);
+}, false);
+
+
+
+
 var burger = $('.menu-trigger');
 
 var isNavOn;
@@ -48,28 +62,38 @@ burger.each(function(index){
 
 $(".menu_click, .nav_item").on("click", function (e) {
     e.preventDefault();//anchor이벤트의 기본동작을 막는다.
-    var thisTarget = $(this).attr("href");
-    var moveTarget = $(".mCSB_container");
-    var topPos = $("#"+thisTarget).position().top;
-    if(-moveTarget.position().top<topPos)
+    if(isMobile)
     {
-        moveTarget.animate({top:-topPos-30},500);
+        var thisTarget = $(this).attr("href");
+        var topPos = $("#"+thisTarget).position().top;
+        $('html, body').animate({scrollTop : topPos}, 500);
+        setTimeout(function () {
+            ShowScrollAnimation(topPos);
+        },500);
     }
     else
     {
-        moveTarget.animate({top:-topPos+30},500);
+        var thisTarget = $(this).attr("href");
+        var moveTarget = $(".mCSB_container");
+        var topPos = $("#"+thisTarget).position().top;
+        if(-moveTarget.position().top<topPos)
+        {
+            moveTarget.animate({top:-topPos-30},500);
+        }
+        else
+        {
+            moveTarget.animate({top:-topPos+30},500);
+        }
+        moveTarget.animate({top:-topPos},500);
+        $('.header').removeClass('shrink');
+        $('.header').addClass('shrink');
+        setTimeout(function () {
+            $('#mCSB_1_dragger_vertical').css('top', $('.mCSB_container').position().top * -0.22);
+            var scroll = $('#mCSB_1_dragger_vertical').position().top;
+            ShowScrollAnimation(scroll);
+
+        },500);
     }
-    moveTarget.animate({top:-topPos},500);
-    $('.header').removeClass('shrink');
-    $('.header').addClass('shrink');
-    setTimeout(function () {
-        $('#mCSB_1_dragger_vertical').css('top', $('.mCSB_container').position().top * -0.22);
-        var scroll = $('#mCSB_1_dragger_vertical').position().top;
-        ShowScrollAnimation(scroll);
-
-    },500);
-
-
 });
 
 function ShowScrollAnimation(scroll)
@@ -77,19 +101,27 @@ function ShowScrollAnimation(scroll)
     $('.showAnimation').each( function(i){
         var bottom_of_object = $(this).offset().top + $(this).outerHeight();
         var bottom_of_window = scroll + $(window).height();
-
         /* 3 */
         if( bottom_of_window > bottom_of_object){
             $(this).animate({'opacity':'1','margin-left':'0px'},1000);
         }
+        //else if(bottom_of_window+300< bottom_of_object)
+        //{
+        //    $(this).animate({'opacity':'0','margin-left':'-300px'},500);
+        //}
     });
     $('.showAnimation2').each( function(i){
         var bottom_of_object = $(this).offset().top+ $(this).outerHeight();
         var bottom_of_window = scroll+ $(window).height();
+
         /* 3 */
-        if( bottom_of_window > bottom_of_object ){
-            $(this).animate({'opacity':'1'},2000);
+        if(bottom_of_window > bottom_of_object ){
+            $(this).animate({'opacity':'1'},1000);
         }
+        //else if(bottom_of_window+300 < bottom_of_object)
+        //{
+        //    $(this).animate({'opacity':'0'},500);
+        //}
     });
 }
 function ShowGameInfoTextAnimation()
@@ -98,28 +130,46 @@ function ShowGameInfoTextAnimation()
     $('.showAnimation').animate({'opacity':'1'},1000);
 }
 
-
+var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
 $(window).on('load',(function() {
-    $('.container').mCustomScrollbar({
-        theme: "minimal-dark",
-        axis:"y",
-        mouseWheelPixels : 300, // 마우스휠 속도
-        scrollInertia : 400,
-        documentTouchScroll : false,
-        callbacks:{
-            onScroll:function(){
-                var scroll = $('#mCSB_1_dragger_vertical').position().top;
-                scroll = $('#mCSB_1_dragger_vertical').position().top;
-                if(scroll >= 30){
-                    $('.header').addClass('shrink');
-                }else{
-                    $('.header').removeClass('shrink');
+    if(!isMobile)
+    {
+        $('.container').mCustomScrollbar({
+            theme: "minimal-dark",
+            axis:"y",
+            mouseWheelPixels : 300, // 마우스휠 속도
+            scrollInertia : 400,
+            documentTouchScroll : false,
+            callbacks:{
+                onScroll:function(){
+                    var scroll = $('#mCSB_1_dragger_vertical').position().top;
+                    scroll = $('#mCSB_1_dragger_vertical').position().top;
+                    if(scroll >= 30){
+                        $('.header').addClass('shrink');
+                    }else{
+                        $('.header').removeClass('shrink');
+                    }
+                    ShowScrollAnimation(scroll);
                 }
-                ShowScrollAnimation(scroll);
             }
-        }
-    });
+        });
+    }
 }));
+
+$(window).on('scroll', function () {
+    if(isMobile)
+    {
+        var st = $(this).scrollTop();
+        if (st >=30){ // Scroll Down
+            $('.header').addClass('shrink');
+        } else {
+            $('.header').removeClass('shrink');
+        }
+        setTimeout(function () {
+            ShowScrollAnimation(st);
+        },500);
+    }
+});
 
 
 

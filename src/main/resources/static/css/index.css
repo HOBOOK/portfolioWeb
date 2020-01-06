@@ -4,9 +4,9 @@
     src: url('fonts/NIXGONFONTS L 2.0.ttf'), url('/fonts/NIXGONFONTS L 2.0.ttf');
 }
 @font-face { font-family: 'NanumGothic';
-    src: url('fonts/NanumGothic.eot');
-    src: url('fonts/NanumGothic.eot') format('embedded-opentype'),
-    url('fonts/NanumGothic.woff') format('woff');
+    src: url('fonts/NanumGothic.eot'), url('/fonts/NanumGothic.eot');
+    src: url('fonts/NanumGothic.eot') format('embedded-opentype') ,url('/fonts/NanumGothic.eot') format('embedded-opentype'),
+    url('fonts/NanumGothic.woff') format('woff'),url('/fonts/NanumGothic.woff') format('woff');
 }
 
 @font-face {
@@ -15,23 +15,27 @@
 }
 @font-face {
     font-family: nanumSquareM;
-    src: url('fonts/NanumSquareR');
+    src: url('fonts/NanumSquareR'),url('/fonts/NanumSquareR');
 }
 @font-face {
     font-family: nanumSquareRoundM;
-    src: url('fonts/NanumSquareRoundR');
+    src: url('fonts/NanumSquareRoundR'),url('/fonts/NanumSquareRoundR');
 }
 
-body {
+html,body {
     -ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;
     background-color: #777777;
     font-family: nixgonfontsL, nixgonfontsL_IE;
     max-width: 100%;
-    max-height: 100%;
     min-width: 100%;
-    min-height: 100%;
-    position:fixed;
+    max-height: 100%;
+    height: 100%;
+    padding: 0;
     margin: 0;
+    background-image: url("/img/background_macbook.jpg");
+}
+div {
+    -webkit-overflow-scrolling:touch;
 }
 
 p{
@@ -76,13 +80,14 @@ p{
 }
 
 .container{
-    max-height: 100vh;
+    height: 100%;
+    height: calc(var(--vh, 1vh) * 100);
     margin: 0;
     min-width: 100%;
     width: 100%;
     padding: 0;
-    background-image: url("/img/background_macbook.jpg");
 
+    -webkit-overflow-scrolling: touch;
 }
 
 .header{
@@ -106,6 +111,7 @@ p{
     box-shadow: 0px 1px 3px 1px #222222;
     background-color: #222222;
 }
+
 
 
 .top_icon_list{
@@ -196,12 +202,28 @@ p{
     font-size: 20px;
     text-decoration: none;
     margin-right: 32px;
-    -webkit-transition: opacity 0.5s;
-    -moz-transition: opacity 0.5s;
-    transition: opacity 0.5s;
+    position: relative;
+    display: block;
 }
-.top_menu_list li a:hover{
-    opacity: 0.5;
+
+.top_menu_list li a:before, .top_menu_list li a:after {
+    content: '';
+    border-bottom: solid 1px white;
+    position: absolute;
+    bottom: 0;
+    width: 0;
+}
+
+.top_menu_list li a:before { left: 0; }
+.top_menu_list li a:after { right: 0; }
+
+.top_menu_list li a:hover:before, .top_menu_list li a:hover:after {
+    width: 50%;
+}
+
+.top_menu_list li a:before, .top_menu_list li a:after {
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .main{
@@ -616,12 +638,11 @@ p{
 
 /*두번째 씬*/
 .scene.two{
-    background-color: #F0F0F0;
-    color: #111111;
+    background-color: #F5F5F5;
+    color: #555555;
 }
 .scene.two p{
-    color: #111111;
-
+    color: #555555;
 }
 .scene_about_wrap{
     width: 100%;
@@ -631,10 +652,12 @@ p{
 
 }
 .scene_about h3{
-    color: #222222;
+    color: #333333;
     font-weight: bold;
     font-family: nixgonfontsL;
     font-size: 20px;
+    margin-left: 30px;
+    text-align: left;
 }
 #scene_profile{
     display: inline-block;
@@ -644,6 +667,17 @@ p{
 }
 #scene_profile img{
     border-radius: 100%;
+}
+.name_wrap{
+    display: inline-block;
+    background-color: coral;
+    color: #F0F0F0;
+    padding: 5px;
+    border-radius: 5px;
+}
+.name_wrap span{
+    font-family: nixgonfontsL;
+    color: white;
 }
 #scene_education{
     top:0;
@@ -1023,8 +1057,6 @@ footer span{
     }
     #scene_profile img{
         display: inline;
-        width: 60px;
-        height: 60px;
     }
     #scene_profile p{
         display: inline-block;

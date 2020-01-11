@@ -67,6 +67,10 @@ $(".menu_click, .nav_item").on("click", function (e) {
         var thisTarget = $(this).attr("href");
         var topPos = $("#"+thisTarget).position().top;
         $('html, body').animate({scrollTop : topPos}, 500);
+        if(topPos>=30)
+            $('.header').addClass('shrink');
+        else
+            $('.header').removeClass('shrink');
         setTimeout(function () {
             ShowScrollAnimation(topPos);
         },500);
@@ -85,12 +89,14 @@ $(".menu_click, .nav_item").on("click", function (e) {
             moveTarget.animate({top:-topPos+30},500);
         }
         moveTarget.animate({top:-topPos},500);
-        $('.header').removeClass('shrink');
-        $('.header').addClass('shrink');
+        if(topPos>=30)
+            $('.header').addClass('shrink');
+        else
+            $('.header').removeClass('shrink');
+
         setTimeout(function () {
             $('#mCSB_1_dragger_vertical').css('top', $('.mCSB_container').position().top * -0.22);
-            var scroll = $('#mCSB_1_dragger_vertical').position().top;
-            ShowScrollAnimation(scroll);
+            ShowScrollAnimation(topPos);
 
         },500);
     }
@@ -98,7 +104,7 @@ $(".menu_click, .nav_item").on("click", function (e) {
 
 function ShowScrollAnimation(scroll)
 {
-    $('.showAnimation').each( function(i){
+    $('.showAnimation, .scene_title').each( function(i){
         var bottom_of_object = $(this).offset().top + $(this).outerHeight();
         var bottom_of_window = scroll + $(window).height();
         /* 3 */
@@ -376,6 +382,7 @@ window.onload = function() {
 $("#popup").click(function(){
     $(".thankyou_message").fadeOut();
 });
+
 
 
 

@@ -365,9 +365,7 @@ p{
     transform: rotateY(20deg);
 }
 .scene{
-
     min-height: 720px;
-    height:100vh;
     min-width:100%;
     padding-top:60px;
     background-size: cover;
@@ -723,79 +721,120 @@ p{
 
 /*두번째 씬*/
 .scene.two{
-    background-color: #F5F5F5;
+    background-color: #F9F9F9;
     color: #555555;
+
 }
 .scene.two p{
     color: #555555;
 }
+.scene_about{
+    display: inline-block;
+    width:100%;
+}
+.about_card{
+    margin: 0 auto;
+    background-color: white;
+    height: 200px;
+    width: 420px;
+    padding:15px;
+    box-shadow: 5px 5px 3px 2px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    text-align: left;
+}
+.about_card p{
+    text-align: center;
+}
+.about_col_1{
+    width:55%;
+    min-height: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
+.about_col_2{
+    margin-left: 3%;
+    width:40%;
+    min-height: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
 .scene_about_wrap{
-    width: 100%;
-    height: 100%;
+    max-width: 80vw;
+    width:100vw;
     font-family: NanumGothic;
     margin:0 auto;
-
 }
-.scene_about h3{
+.scene_about_title{
     color: #333333;
     font-weight: bold;
     font-family: nixgonfontsL;
-    font-size: 27px;
-    margin-left: 20vw;
+    font-size: 17px;
     text-align: left;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
+    margin-bottom:30px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.scene_about i{
+    font-size: 18px;
+    color: springgreen;
+    padding-right: 20px;
 }
 #scene_profile{
-    display: inline-block;
-    width: 100%;
-    margin-top: 30px;
-    top:0;
+    height: 300px;
 }
 #scene_profile img{
     border-radius: 100%;
 }
-.about_keyword{
-    display: inline-block;
-    margin:0 auto;
-    margin-top: 100px;
+#scene_keyword{
+    height: 300px;
 }
 .about_keyword ul{
     list-style: none;
     margin: 0;
     padding: 0;
-    text-align: center;
-
+    text-align: left;
 }
 .about_keyword li{
-    margin-right: 20px;
     float: left;
+    margin-bottom:20px;
 }
 .about_keyword li i{
-    width:70px;
-    height: 70px;
-    font-size: 40px;
-    background-color: coral;
-    padding: 20px;
+    width:40px;
+    height: 40px;
+    font-size: 20px;
+    background-color: lightgray;
+    padding: 10px;
     border-radius: 100%;
     color:white;
+    display: inline-block;
+}
+.about_keyword li div{
+    display: inline-block;
 }
 .about_keyword li h4{
     font-weight: bold;
+    margin-left: 15px;
+    transform: rotateZ(20deg);
+    display: inline-block;
 }
-.about_keyword li p{
-
+.about_keyword li span{
+    font-weight: bold;
+    color: darkgray;
+    margin-left: 30px;
 }
 .name_wrap{
+    float:left;
     display: inline-block;
-    background-color: coral;
-    color: #F0F0F0;
+    background-color: mediumspringgreen;
+    color: #333333;
     padding: 5px;
+    font-size: 12px;
     border-radius: 5px;
 }
 .name_wrap span{
     font-family: nixgonfontsL;
     font-weight: bold;
-    color: white;
+    color: #333333;
 }
 #scene_education{
     top:0;
@@ -977,19 +1016,52 @@ p{
     margin: 0;
 }
 #scene_skill ul li{
-    display: inline-block;
-    margin-right: 20px;
+    display: block;
     font-family: nanumSquareRoundM;
     font-weight: normal;
+    width:100%;
+    height: 80px;
 }
-#scene_skill span{
-    background-color: lightgray;
-    font-weight: bold;
-    color:white;
-    padding: 5px;
-    border-radius: 5px;
+.skill_type{
+    float: left;
+    margin-left: 0;
+    width:120px;
+    height: 80px;
+    display: inline-block;
 }
 
+.skill_Proficiency_percent span{
+    background-color: rgba(0,0,0,0.2);
+    font-weight: bold;
+    color:white;
+    padding: 3px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-top:3px;
+    margin-right:3px;
+    float:right;
+}
+.skill_category{
+    margin-left: 0;
+    font-weight: bold;
+    color: darkgray;
+    display: block;
+    padding:20px;
+    margin-top:20px;
+    margin-bottom:20px;
+    background-color: royalblue;
+    font-weight: bold;
+    color:white;
+    padding: 3px;
+    border-radius: 5px;
+}
+.skill_Proficiency{
+    float: right;
+    margin-top:10px;
+    height:30px;
+    width: calc(100% - 130px);
+    display: inline-block;
+}
 .scene.three{
     //background-color: white;
     background-color: rgba(0,0,0,0);
@@ -1328,16 +1400,18 @@ footer span{
         width: 104px;
         height: 39px;
     }
-
-    #scene_profile{
-        display: block;
+    .scene_about {
+        max-width: 100vw;
+        width:100vw;
     }
-    #scene_profile img{
-        display: inline;
+    .scene_about_wrap{
+        max-width: 100vw;
     }
-    #scene_profile p{
-        display: inline-block;
-        font-size: 12px;
+    .about_col_1{
+        width:100%;
+    }
+    .about_col_2{
+        width:100%;
     }
     .about_keyword li{
         margin-right: 5px;

@@ -59,7 +59,8 @@ $.lang.ko= {
     i_4:'알고리즘 문제 풀이 기록 블로그',
     i_5:'안드로이드 모바일 퍼즐 게임 프로젝트',
     i_6:'안드로이드 모바일 PRG 게임 프로젝트',
-    i_7:'안드로이드 모바일 시뮬레이션 게임 프로젝트'
+    i_7:'안드로이드 모바일 시뮬레이션 게임 프로젝트',
+    i_8:'! 현재 진행중인 개인 프로젝트(2020-03-01~)\n 메모기능, 할일 목록 등 개인 일정관리 목적의 웹사이트'
 };
 
 $.lang.en = {
@@ -121,7 +122,8 @@ $.lang.en = {
     i_4: 'Algorithm Problem Solving Blog',
     i_5: "Android Mobile Puzzle Game Project",
     i_6: "Android Mobile PRG Game Project",
-    i_7: "Android Mobile Simulation Game Project"
+    i_7: "Android Mobile Simulation Game Project",
+    i_8:'Current personal project (2020-03-01 ~)\n Website for personal schedule management such as memo function and to-do list'
 };
 
 function setLanguage(currentLanguage) {

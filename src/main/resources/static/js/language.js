@@ -52,6 +52,12 @@ $.lang.ko= {
     timeline_title_9: '경상대학교 경영정보학과 입학',
     timeline_subtitle_9:'공부',
     timeline_info_9:'국립 경상대학교에 입학하였습니다.',
+    timeline_title_10: 'TOMO',
+    timeline_subtitle_10:'개인 프로젝트',
+    timeline_info_10:'메모, 일정 관리 웹사이트 개발중입니다.(03-01~)',
+    timeline_title_11: '나누미',
+    timeline_subtitle_11:'다우기술 인턴',
+    timeline_info_11:'다우기술에서 인턴 프로젝트를 진행했습니다.(05-18 ~ 06-12)',
     i_0:'포트폴리오 웹사이트',
     i_1:'커플 사진 저장, 블로그 웹사이트',
     i_2:'교내 콘텐츠 제공 웹사이트',
@@ -60,7 +66,8 @@ $.lang.ko= {
     i_5:'안드로이드 모바일 퍼즐 게임 프로젝트',
     i_6:'안드로이드 모바일 PRG 게임 프로젝트',
     i_7:'안드로이드 모바일 시뮬레이션 게임 프로젝트',
-    i_8:'! 현재 진행중인 개인 프로젝트(2020-03-01~)\n 메모기능, 할일 목록 등 개인 일정관리 목적의 웹사이트'
+    i_8:'! 현재 진행중인 개인 프로젝트(2020-03-01~)\n 메모기능, 할일 목록 등 개인 일정관리 목적의 웹사이트',
+    i_9:'다우기술 인턴 프로젝트\n 번호 자원 관리 웹사이트 + REST API 서비스'
 };
 
 $.lang.en = {
@@ -115,6 +122,12 @@ $.lang.en = {
     timeline_title_9: 'Enrollment in Department of MIS, Gyeongsang National University',
     timeline_subtitle_9: "study",
     timeline_info_9: 'I entered the National Gyeongsang National University.',
+    timeline_title_10:'TOMO',
+    timeline_subtitle_10:'Personal project',
+    timeline_info_10:'Note, schedule management website is under development.(03-01~)',
+    timeline_title_11:'Nanumi',
+    timeline_subtitle_11:'Daou Technology Intern',
+    timeline_info_11:'I did an intern project in Daou Technology.(05-18 ~ 06-12)',
     i_0: "portfolio website",
     i_1: "Save couple photo, blog website",
     i_2: "On-campus content serving website",
@@ -123,7 +136,8 @@ $.lang.en = {
     i_5: "Android Mobile Puzzle Game Project",
     i_6: "Android Mobile PRG Game Project",
     i_7: "Android Mobile Simulation Game Project",
-    i_8:'Current personal project (2020-03-01 ~)\n Website for personal schedule management such as memo function and to-do list'
+    i_8:'Current personal project (2020-03-01 ~)\n Website for personal schedule management such as memo function and to-do list',
+    i_9:'Daou Technology Intern Project\n Number Resource Management Website + REST API Service'
 };
 
 function setLanguage(currentLanguage) {

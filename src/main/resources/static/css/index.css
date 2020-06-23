@@ -981,7 +981,7 @@ footer span{
     transition: width 1s, background-color 1s;
 }
 .nav.open{
-    width: 200px;
+    width: 250px;
     background-color: #222222;
 }
 .nav_content{
@@ -1000,7 +1000,7 @@ footer span{
 .nav_content ul li a{
     text-decoration: none;
     color: #B0B0B0;
-    font-size: 23px;
+    font-size: 20px;
     border-bottom: none;
     -webkit-transition: color 0.5s;
     -moz-transition: color 0.5s;

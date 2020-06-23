@@ -2,7 +2,7 @@ $.lang = {};
 
 $.lang.ko= {
     header_menu_0: '소개',
-    header_menu_1: '작업물',
+    header_menu_1: '프로젝트',
     header_menu_2: '연락',
     start_title_0: '방문해 주셔서 감사합니다',
     about_name:'박 경 호',
@@ -72,7 +72,7 @@ $.lang.ko= {
 
 $.lang.en = {
     header_menu_0: 'About',
-    header_menu_1: 'Works',
+    header_menu_1: 'Projects',
     header_menu_2: 'Contact',
     start_title_0: 'Thank you for visiting',
     about_name:'Gyeongho Park',

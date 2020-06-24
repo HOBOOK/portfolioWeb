@@ -14,7 +14,7 @@ app.controller('projectController', function ($scope, $http, $compile, $uibModal
         },
         {
             type: "Web",
-            title: "toomo",
+            title: "Toomo",
             description: "! 현재 진행중인 개인 프로젝트(2020-03-01~) \n 메모기능, 할일 목록 등 개인 일정관리 목적의 SPA 웹",
             image: "img/i_13.png",
             info: [{
@@ -36,6 +36,16 @@ app.controller('projectController', function ($scope, $http, $compile, $uibModal
             },{
                 type: "Link",
                 href: "http://www.ghpark.site"
+            }]
+        },
+        {
+            type: "Web",
+            title: "Silkroad ALM",
+            description: "NSE 기업에서 앱 생명 관리 주기(ALM) 웹 솔루션의 파일 형상 관리 모듈 유지 보수",
+            image: "img/i_4.png",
+            info: [{
+                type: "Link",
+                href: "http://www.nsetec.com/sub/silkroad/silkroad.html#/section-1"
             }]
         },
         {
@@ -215,7 +225,10 @@ app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) 
 
 app.controller('aboutController', function ($scope, $http, $compile, $uibModal, $filter) {
     $scope.targetIndex = 0;
-    $scope.skills = [{
+    $scope.targetSkillType = 0;
+    $scope.skills = [];
+    var skills = [{
+        type: 0,
         title: "Java",
         image: "img/skill_java.png",
         info: [{
@@ -226,16 +239,151 @@ app.controller('aboutController', function ($scope, $http, $compile, $uibModal, 
             description: "다양한 웹, 앱 프로젝트 경험이 있는 언어입니다."
         }]
     },{
+        type: 0,
         title: "C#",
         image: "img/skill_csharp.png",
         info: [{
-            description: "Winform 프로그래밍을 할 수 있습니다."
+            description: "객체지향언어중 가장 먼저 배운 언어입니다."
         },{
-            description: ".Net Framework 환경에서 웹 솔루션 유지보수를 한 경험이 있습니다."
+            description: ".Net ASP 환경에서 웹 솔루션 유지보수를 한 경험이 있습니다."
         },{
             description: "Unity 엔진을 이용해 모바일 게임을 출시한 경험이 있습니다."
         }]
+    },{
+        type: 0,
+        title: "Javascript",
+        image: "img/skill_javascript.png",
+        info: [{
+            description: "기본적인 자바스크립트 문법을 작성할 수 있습니다."
+        },{
+            description: "자바스크립트 프레임워크를 이용하여 프론트엔드 데이터 바인딩을 할 수 있습니다."
+        },{
+            description: "Ajax를 이용하여 비동기 요청처리를 할 수 있습니다."
+        }]
+    },{
+        type: 0,
+        title: "Python",
+        image: "img/skill_python.png",
+        info: [{
+            description: "기본적인 문법을 이해하고 작성할 수 있습니다."
+        },{
+            description: "아직 배워가는 언어입니다."
+        }]
+    },{
+        type: 1,
+        title: "Spring Boot",
+        image: "img/skill_spring.png",
+        info: [{
+            description: "Spring boot 멀티 모듈 설계를 할 수 있습니다."
+        },{
+            description: "JPA를 이용하여 ORM 구현을 할 수 있습니다."
+        },{
+            description: "Spring Security + JWT 인증 인가 처리를 할 수 있습니다."
+        },{
+            description: "RESTful API 서버를 구현할 수 있습니다."
+        }]
+    },{
+        type: 1,
+        title: "AngularJs",
+        image: "img/skill_angularjs.png",
+        info: [{
+            description: "http를 이용해 API를 요청하고 데이터 바인딩을 할 수 있습니다."
+        },{
+            description: "데이터 필터 처리를 할 수 있습니다."
+        }]
+    },{
+        type: 1,
+        title: ".Net Framework",
+        image: "img/skill_net.png",
+        info: [{
+            description: ".NET ASP를 통해 C#기반의 웹 개발이 가능합니다."
+        },{
+            description: "윈도우 기반의 응용프로그램을 만들 수 있습니다."
+        }]
+    },{
+        type: 2,
+        title: "Microsoft SQL Server",
+        image: "img/skill_mssql.png",
+        info: [{
+            description: "MS-SQL 쿼리문을 통해 데이터베이스 모델링을 할 수 있습니다."
+        },{
+            description: "DB서버를 구축하고 백엔드 서버와 연동을 할 수 있습니다."
+        }]
+    },{
+        type: 2,
+        title: "Maria DB",
+        image: "img/skill_maria.png",
+        info: [{
+            description: "MariaDB 쿼리문을 통해 데이터베이스 모델링을 할 수 있습니다."
+        },{
+            description: "DB서버를 구축하고 백엔드 서버와 연동을 할 수 있습니다."
+        }]
+    },{
+        type: 2,
+        title: "Firebase DB",
+        image: "img/skill_firebase.png",
+        info: [{
+            description: "NoSQL 기반의 데이터베이스 설계를 할 수 있습니다."
+        },{
+            description: "REST 요청을 통해 데이터를 CRUD할 수 있습니다."
+        }]
+    },{
+        type: 3,
+        title: "AWS",
+        image: "img/skill_aws.png",
+        info: [{
+            description: "AWS EC2 인스턴스를 생성하고 서버를 구성할 수 있습니다."
+        },{
+            description: "현재 포트폴리오 웹이 AWS를 통해 배포가된 상태입니다."
+        }]
+    },{
+        type: 3,
+        title: "Window Server",
+        image: "img/skill_windowserver.png",
+        info: [{
+            description: "윈도우 서버를 설치하고 환경설정한 경험이 있습니다."
+        },{
+            description: "IIS 설정과 톰캣 환경 구성을 할 수 있습니다."
+        }]
+    },{
+        type: 3,
+        title: "Linux",
+        image: "img/skill_linux.png",
+        info: [{
+            description: "기본적인 리눅스 명령어를 사용할 수 있습니다."
+        },{
+            description: "톰캣환경의 JSP 웹 서버 배포 경험이 있습니다."
+        }]
+    },{
+        type: 4,
+        title: "Git",
+        image: "img/skill_git.png",
+        info: [{
+            description: "기본적인 Git 플로우를 이해하고 Git Hub를 통한 협업을 할 수 있습니다."
+        },{
+            description: "Source Tree를 사용해서 GUI 환경에서 Git을 이용할 수 있습니다."
+        }]
+    },{
+        type: 4,
+        title: "Unity Engine",
+        image: "img/skill_unity.png",
+        info: [{
+            description: "유니티 엔진을 통해 3번의 모바일 게임 출시 경험이 있습니다."
+        },{
+            description: "MonoDevelop을 이해하고 사용할 수 있습니다."
+        }]
     }];
+    $scope.skills =  $filter('filter')(skills, {type: 0});
+
+    $scope.getAboutHeader = function(){
+        if($scope.targetIndex===0){
+            return "저는 이런 사람입니다"
+        }else if($scope.targetIndex===1){
+            return "저의 기술 스택은 이렇습니다"
+        }else {
+            return "제가 걸어온 시간입니다"
+        }
+    }
 
     $scope.selectAbout = function (index) {
         $scope.targetIndex = index;
@@ -247,6 +395,20 @@ app.controller('aboutController', function ($scope, $http, $compile, $uibModal, 
         }else{
             return "";
         }
+    }
+
+    $scope.selectSkillType = function (type) {
+        $scope.targetSkillType = type;
+        $scope.skills = $filter('filter')(skills, {type: type});
+    }
+
+    $scope.selectedSkillType = function (type) {
+        if(type===$scope.targetSkillType){
+            return "selected";
+        }else{
+            return "";
+        }
+
     }
 })
 

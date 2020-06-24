@@ -370,11 +370,14 @@ p{
     padding-top:60px;
     background-size: cover;
     background-attachment: fixed;
+    margin-bottom: 100px;
+    transition: height 0.3s ease-in-out;
 }
 .scene_title{
     display: inline-block;
     font-weight: 900;
     padding-bottom: 50px;
+    color:black;
 }
 .scene.one{
     background-color: #F9F9F9;
@@ -434,6 +437,7 @@ p{
     -webkit-transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     border-radius: 10px;
     opacity: 1;
+    box-shadow: 0 0 10px -2px rgba(0,0,0,0.2);
 }
 .card:hover{
     transform: translateY(-7px);
@@ -652,6 +656,7 @@ p{
     background-color: white;
     padding: 10px;
     border-radius: 100%;
+    box-shadow: 0 0 5px -2px rgba(0,0,0,0.15);
     color:springgreen;
     display: inline-block;
 
@@ -769,7 +774,7 @@ p{
     display: block;
     width: 100%;
     vertical-align: top;
-    font-family: NanumGothic;
+
 }
 #scene_skill ul{
     list-style: none;
@@ -778,7 +783,7 @@ p{
 
 .skill_type{
     margin-left: 0;
-    width:120px;
+    max-width: 100%;
     height: 60px;
     display: inline-block;
 }
@@ -787,8 +792,10 @@ p{
     font-size: 16px;
 }
 .skill_info_wrapper{
+    margin-top:30px;
     width: 100%;
     display: inline-block;
+    font-family: NanumGothic;
 }
 .skill_info_wrapper ul{
     width: 100%;
@@ -797,7 +804,7 @@ p{
     padding: 0;
 }
 .skill_info_wrapper li{
-    margin-bottom: 12px;
+    margin-bottom: 25px;
 }
 
 
@@ -812,11 +819,31 @@ p{
     float:right;
 }
 .skill_category{
-    margin:20px 0 20px 0;
-    display: block;
+    margin:0 auto;
+    display: inline-block;
+}
+.skill_category ul{
+    margin: 0 auto;
+    display: inline-block;
+}
+.skill_category li{
+    font-family: nixgonfontsL;
     font-size: 20px;
-    padding: 3px;
+    display: inline-block;
+    cursor: pointer;
+    transition: color 0.1s ease-in-out;
+    -o-transition: color 0.1s ease-in-out;
+    -moz-transition: color 0.1s ease-in-out;
+    -webkit-transition: color 0.1s ease-in-out;
+    margin-right:12px;
+}
+.skill_category li:hover{
     color:black;
+    font-weight: bold;
+}
+.skill_category li.selected{
+    color:black;
+    font-weight: bold;
 }
 .skill_Proficiency{
     float: right;
@@ -1174,16 +1201,7 @@ footer span{
     .about_col_2{
         width:100%;
     }
-    .about_keyword li{
-        margin-right: 5px;
-        width: 30%;
-    }
-    .about_keyword li i{
-        width:30px;
-        height: 30px;
-        font-size: 20px;
-        padding: 10px;
-    }
+
     #scene_education{
         margin-top:15px;
     }
@@ -1205,6 +1223,9 @@ footer span{
      }
     .about_keyword li span{
         margin-left:0;
+    }
+    .skill_category li{
+        font-size: 14px;
     }
     .card {
         grid-column-end: span 6;

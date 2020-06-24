@@ -102,7 +102,7 @@
                 </div>
             </div>
             <section class="scene two" id="about" ng-controller="aboutController">
-                <h1 class="scene_title">저는 이런 사람입니다</h1>
+                <h1 class="scene_title" ng-bind="getAboutHeader()"></h1>
                 <div class="about_menu_wrapper">
                     <ul>
                         <li ng-class="selectedAbout(0)" ng-click="selectAbout(0)">Introduce</li>
@@ -137,9 +137,60 @@
                         </div>
                     </div>
                     <div class="scene_about" id="scene_skill" ng-show="targetIndex===1">
-                        <span class="skill_category">Programming Language</span>
-                        <div class="skill_info_wrapper">
+                        <span class="skill_category">
                             <ul>
+                                <li ng-class="selectedSkillType(0)" ng-click="selectSkillType(0)"># Programming Language</li>
+                                <li ng-class="selectedSkillType(1)" ng-click="selectSkillType(1)"># Framework</li>
+                                <li ng-class="selectedSkillType(2)" ng-click="selectSkillType(2)"># Database</li>
+                                <li ng-class="selectedSkillType(3)" ng-click="selectSkillType(3)"># Server</li>
+                                <li ng-class="selectedSkillType(4)" ng-click="selectSkillType(4)"># Etc</li>
+                            </ul>
+                        </span>
+                        <div class="skill_info_wrapper">
+                            <ul ng-show="targetSkillType===0">
+                                <li ng-repeat="skill in skills">
+                                    <div class="skill_type"><img width="48" height="48" ng-src="{{skill.image}}"/>
+                                        <span>{{skill.title}}</span>
+                                    </div>
+                                    <ul>
+                                        <li ng-repeat="info in skill.info">- {{info.description}}</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul ng-show="targetSkillType===1">
+                                <li ng-repeat="skill in skills">
+                                    <div class="skill_type"><img width="48" height="48" ng-src="{{skill.image}}"/>
+                                        <span>{{skill.title}}</span>
+                                    </div>
+                                    <ul>
+                                        <li ng-repeat="info in skill.info">- {{info.description}}</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <ul ng-show="targetSkillType===2">
+                                <li ng-repeat="skill in skills">
+                                    <div class="skill_type"><img width="48" height="48" ng-src="{{skill.image}}"/>
+                                        <span>{{skill.title}}</span>
+                                    </div>
+                                    <ul>
+                                        <li ng-repeat="info in skill.info">- {{info.description}}</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <ul ng-show="targetSkillType===3">
+                                <li ng-repeat="skill in skills">
+                                    <div class="skill_type"><img width="48" height="48" ng-src="{{skill.image}}"/>
+                                        <span>{{skill.title}}</span>
+                                    </div>
+                                    <ul>
+                                        <li ng-repeat="info in skill.info">- {{info.description}}</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <ul ng-show="targetSkillType===4">
                                 <li ng-repeat="skill in skills">
                                     <div class="skill_type"><img width="48" height="48" ng-src="{{skill.image}}"/>
                                         <span>{{skill.title}}</span>
@@ -150,33 +201,6 @@
                                 </li>
                             </ul>
                         </div>
-
-<!--                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_java.png"/><p>Java</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 85%;background-color: skyblue;border-radius: 5px;"><span>4 years</span><p style="vertical-align: center;font-weight: bold;color:white;">85%</p></div></div></li>-->
-<!--                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_javascript.png"/><p>Javascript</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 50%;background-color: skyblue;border-radius: 5px;"><span>2 years</span><p style="vertical-align: center;font-weight: bold;color:white;">50%</p></div></div></li>-->
-<!--                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_jsp.png"/><p>JSP</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 50%;background-color: skyblue;border-radius: 5px;"><span>1 year</span><p style="vertical-align: center;font-weight: bold;color:white;">50%</p></div></div></li>-->
-<!--                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_python.png"/><p>Python</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 30%;background-color: skyblue;border-radius: 5px;"><span>studying</span><p style="vertical-align: center;font-weight: bold;color:white;">30%</p></div></div></li>-->
-
-                        <span class="skill_category">Framework</span>
-                        <ul>
-                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_spring.png"/><p>Spring Boot</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 80%;background-color: skyblue;border-radius: 5px;"><span>6 month</span><p style="vertical-align: center;font-weight: bold;color:white;">80%</p></div></div></li>
-                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_net.png"/><p>.NET Framework</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 50%;background-color: skyblue;border-radius: 5px;"><span>2 years</span><p style="vertical-align: center;font-weight: bold;color:white;">50%</p></div></div></li>
-                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_angularjs.png"/><p>Angular Js</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 40%;background-color: skyblue;border-radius: 5px;"><span>3 months</span><p style="vertical-align: center;font-weight: bold;color:white;">40%</p></div></div></li>
-                        </ul>
-                        <span class="skill_category">IDE</span>
-                        <ul>
-                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_visualstudio.png"/><p>Visual Studio</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 85%;background-color: skyblue;border-radius: 5px;"><span>5 yeas</span><p style="vertical-align: center;font-weight: bold;color:white;">85%</p></div></div></li>
-                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_intellij.png"/><p>Intelli J</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 70%;background-color: skyblue;border-radius: 5px;"><span>2 years</span><p style="vertical-align: center;font-weight: bold;color:white;">70%</p></div></div></li>
-                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_android.png"/><p>Android Studio</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 50%;background-color: skyblue;border-radius: 5px;"><span>1 year</span><p style="vertical-align: center;font-weight: bold;color:white;">50%</p></div></div></li>
-                        </ul>
-                        <span class="skill_category">DBMS, Engine, Cloud Service, Version Control</span>
-                        <ul>
-                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_unity.png"/><p>Unity Engine</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 80%;background-color: skyblue;border-radius: 5px;"><span>2 years</span><p style="vertical-align: center;font-weight: bold;color:white;">80%</p></div></div></li>
-                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_mssql.png"/><p>SQL server</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 70%;background-color: skyblue;border-radius: 5px;"><span>3 years</span><p style="vertical-align: center;font-weight: bold;color:white;">70%</p></div></div></li>
-                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_maria.png"/><p>Maria DB</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 20%;background-color: skyblue;border-radius: 5px;"><span>1 month</span><p style="vertical-align: center;font-weight: bold;color:white;">20%</p></div></div></li>
-                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_git.png"/><p>Git</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 50%;background-color: skyblue;border-radius: 5px;"><span>1 year</span><p style="vertical-align: center;font-weight: bold;color:white;">50%</p></div></div></li>
-                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_firebase.png"/><p>Google Firebase</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 50%;background-color: skyblue;border-radius: 5px;"><span>1 year</span><p style="vertical-align: center;font-weight: bold;color:white;">50%</p></div></div></li>
-                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_aws.png"/><p>AWS</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 30%;background-color: skyblue;border-radius: 5px;"><span>2 months</span><p style="vertical-align: center;font-weight: bold;color:white;">30%</p></div></div></li>
-                        </ul>
                     </div>
                     <div class="scene_about" id="scene_education" ng-show="targetIndex===2">
                         <div id="timeline-content">
@@ -188,7 +212,7 @@
                                     <p data-langNum="timeline_info_11">다우기술에서 인턴 프로젝트를 진행했습니다.(05-18 ~ 06-12)</p>
                                 </li>
                                 <li class="event" data-date="2020">
-                                    <h3 data-langNum="timeline_title_10">TOMO</h3>
+                                    <h3 data-langNum="timeline_title_10">Toomo</h3>
                                     <h5 data-langNum="timeline_subtitle_10">개인 프로젝트</h5>
                                     <h6>Spring Boot, AngularJs, AWS, MS-SQL</h6>
                                     <p data-langNum="timeline_info_10">메모, 일정 관리 웹사이트 개발중입니다.(03-01~)</p>
@@ -301,7 +325,7 @@
                 </div>
             </section>
             <section class="scene three" id="contact">
-                <h1 class="scene_title">연락주세요</h1>
+                <h1 class="scene_title" style="color: white;">연락주세요</h1>
                 <div class="contact_mail">
                     <form onsubmit="return formCheck(this)" class="gform" method="POST" data-email="pkh879@gmail.com"
                           action="https://script.google.com/macros/s/AKfycbzWseXWbbJegzYE0gErbyA2FBr3IyCgRoYoE7fjz4YcAnwR3xg/exec">
@@ -341,7 +365,7 @@
             <div class="nav_content">
                 <ul>
                     <li><a class="nav_item" href="about"><i class="fas fa-address-card"></i><p data-langNum="header_menu_0">소개</p></a></li>
-                    <li><a class="nav_item" href="works"><i class="fas fa-gamepad"></i><p data-langNum="header_menu_1">작업물</p></a></li>
+                    <li><a class="nav_item" href="works"><i class="fas fa-gamepad"></i><p data-langNum="header_menu_1">프로젝트</p></a></li>
                     <li><a class="nav_item" href="contact"><i class="fas fa-mail-bulk"></i><p data-langNum="header_menu_2">연락</p></a></li>
                     <li><a href="http://www.gphark.site/pdf/portfolio.pdf" target="_blank"><i class="fas fa-file-pdf"></i><p>PDF</p></a></li>
                 </ul>

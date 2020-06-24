@@ -13,5 +13,9 @@ public class PageController {
         return "index";
     }
 
+    @RequestMapping(value = "modal/modal_project", method = RequestMethod.GET)
+    public String modalProject(){
+        return "modal/modal_project";
+    }
 
 }

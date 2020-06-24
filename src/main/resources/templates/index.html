@@ -10,9 +10,12 @@
 
     <!--js-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-sanitize.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/angular-ui/bootstrap/gh-pages/ui-bootstrap-tpls-2.5.0.js"></script>
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/controller.js"></script>
     <script src="js/timeline.js"></script>
     <script>
         $(function(){
@@ -21,6 +24,7 @@
             })
         });
     </script>
+    <script src="js/portfolio.js"></script>
     <script src="js/loading.js"></script>
 
 
@@ -244,248 +248,32 @@
                     </div>
                 </div>
             </section>
-            <section class="scene one" id="works">
+            <section class="scene one" id="works" ng-controller="projectController">
                 <h1 class="scene_title">Works</h1>
                 <div class="cards_wrapper">
                     <div class="cards">
-                        <div class="card">
+                        <div class="card" ng-repeat="project in projects" ng-click="showModal($event)">
                             <div class="card_container">
-                                <img src="img/i_14.png"/>
+                                <img ng-src="{{project.image}}"/>
                                 <div class="card_type">
-                                    # Web
+                                    # {{project.type}}
                                 </div>
                             </div>
                             <div class="card_content">
                                 <h3 class="card_title">
-                                    나누미
+                                    {{project.title}}
                                 </h3>
                                 <p class="card_title" data-langNum="i_9">
-                                    다우기술 인턴 프로젝트
-                                    번호 자원 관리 웹사이트 + REST API 서비스
+                                    {{project.description}}
                                 </p>
                                 <span class="card_info">
-                                    <a target=_blank href="https://github.com/HOBOOK/nanumi">
-                                        <i class="fab fa-github"></i> Git hub
-                                    </a>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card_container">
-                                <img src="img/i_13.png"/>
-                                <div class="card_type">
-                                    # Web
-                                </div>
-                            </div>
-                            <div class="card_content">
-                                <h3 class="card_title">
-                                    TOMO
-                                </h3>
-                                <p class="card_title" data-langNum="i_8">
-                                    ! 현재 진행중인 개인 프로젝트(2020-03-01~)
-                                    메모기능, 할일 목록 등 개인 일정관리 목적의 SPA 웹
-                                </p>
-                                <span class="card_info">
-                                    <a target=_blank href="https://github.com/HOBOOK/tomo">
-                                        <i class="fab fa-github"></i> Git hub
-                                    </a>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card_container">
-                                <img src="img/i_0.png"/>
-                                <div class="card_type">
-                                    # Web
-                                </div>
-                            </div>
-                            <div class="card_content">
-                                <h3 class="card_title">
-                                    G.H.Park Portfolio Web
-                                </h3>
-                                <p class="card_title" data-langNum="i_0">
-                                    포트폴리오 웹사이트
-                                </p>
-                                <span class="card_info">
-                                    <a target=_blank href="https://github.com/HOBOOK/portfolioWeb">
-                                        <i class="fab fa-github"></i> Git hub
-                                    </a>
-                                    <a target=_blank href="http://www.ghpark.site">
-                                        <i class="fas fa-link"></i> Link
-                                    </a>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card_container">
-                                <img src="img/i_9.png"/>
-                                <div class="card_type">
-                                    # Web
-                                </div>
-                            </div>
-                            <div class="card_content">
-                                <h3 class="card_title">
-                                    Saghistory
-                                </h3>
-                                <p class="card_title" data-langNum="i_1">
-                                    커플 사진 저장, 블로그 웹사이트
-                                </p>
-                                <span class="card_info">
-                                    <a target=_blank href="https://github.com/HOBOOK/Saghistory">
-                                        <i class="fab fa-github"></i> Git hub
-                                    </a>
-                                    <a target=_blank href="http://www.ghpark.site/saghistory/index.jsp">
-                                        <i class="fas fa-link"></i> Link
-                                    </a>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card_container">
-                                <img src="img/i_12.png"/>
-                                <div class="card_type">
-                                    # Web
-                                </div>
-                            </div>
-                            <div class="card_content">
-                                <h3 class="card_title">
-                                    Do The G
-                                </h3>
-                                <p class="card_title" data-langNum="i_2">
-                                    교내 콘텐츠 제공 웹사이트
-                                </p>
-                                <span class="card_info">
-                                    <a target=_blank href="http://www.ghpark.site/pdf/dotheg.pdf">
-                                        <i class="fas fa-file-pdf"></i> PDF
-                                    </a>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card_container">
-                                <img src="img/i_11.png"/>
-                                <div class="card_type">
-                                    # Android App
-                                </div>
-                            </div>
-                            <div class="card_content">
-                                <h3 class="card_title">
-                                    HistoAR
-                                </h3>
-                                <p class="card_title" data-langNum="i_3">
-                                    증강현실을 이용한 역사탐방어플리케이션 프로젝트
-                                </p>
-                                <span class="card_info">
-                                    <a target=_blank href="http://www.ghpark.site/pdf/histoar.pdf">
-                                        <i class="fas fa-file-pdf"></i> PDF
-                                    </a>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card_container">
-                                <img src="img/i_10.png"/>
-                                <div class="card_type">
-                                    # Blog
-                                </div>
-                            </div>
-                            <div class="card_content">
-                                <h3 class="card_title">
-                                    Studying Blog
-                                </h3>
-                                <p class="card_title" data-langNum="i_4">
-                                    알고리즘 문제 풀이 기록 블로그
-                                </p>
-                                <span class="card_info">
-                                    <a target=_blank href="https://blog.naver.com/pkh879">
-                                        <i class="fas fa-link"></i> Link
-                                    </a>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card_container">
-                                <img src="img/i_1.png"/>
-                                <div class="card_type">
-                                    # Mobile Game
-                                </div>
-                            </div>
-                            <div class="card_content">
-                                <h3 class="card_title">
-                                    Push Cube
-                                </h3>
-                                <p class="card_title" data-langNum="i_5">
-                                    안드로이드 모바일 퍼즐 게임 프로젝트
-                                </p>
-                                <span class="card_info">
-                                    <span class="popupVideo">
-                                        <a data-video="CsW758NgrFY">
-                                            <i class="fab fa-youtube-square"></i> Youtube
+                                    <span class="popupVideo block" ng-show="{{project.video}}">
+                                        <a data-video="{{project.video.id}}" class="block" ng-click="popupVideo(project.video.id)">
+                                            <i ng-class="getCardInfoImage(project.video.type)"></i> {{project.video.type}}
                                         </a>
                                     </span>
-                                    <a target=_blank href="https://github.com/HOBOOK/PushCube">
-                                        <i class="fab fa-github"></i> Git hub
-                                    </a>
-                                    <a target=_blank href="https://play.google.com/store/apps/details?id=com.HobookGames.PushCube">
-                                        <i class="fas fa-link"></i> Link
-                                    </a>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card_container">
-                                <img src="img/i_2.png"/>
-                                <div class="card_type">
-                                    # Mobile Game
-                                </div>
-                            </div>
-                            <div class="card_content">
-                                <h3 class="card_title">
-                                    Flat Heroes
-                                </h3>
-                                <p class="card_title" data-langNum="i_6">
-                                    안드로이드 모바일 RPG 게임 프로젝트
-                                </p>
-                                <span class="card_info">
-                                    <span class="popupVideo">
-                                        <a data-video="ZgJj51aOMvE">
-                                            <i class="fab fa-youtube-square"></i> Youtube
-                                        </a>
-                                    </span>
-                                    <a target=_blank href="https://github.com/HOBOOK/Flat-Heroes">
-                                        <i class="fab fa-github"></i> Git hub
-                                    </a>
-                                    <a target=_blank href="https://play.google.com/store/apps/details?id=com.HobookGames.FlatHeros">
-                                        <i class="fas fa-link"></i> Link
-                                    </a>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card_container">
-                                <img src="img/i_5.png"/>
-                                <div class="card_type">
-                                    # Mobile Game
-                                </div>
-                            </div>
-                            <div class="card_content">
-                                <h3 class="card_title">
-                                    Lifee
-                                </h3>
-                                <p class="card_title" data-langNum="i_7">
-                                    안드로이드 모바일 시뮬레이션 게임 프로젝트
-                                </p>
-                                <span class="card_info">
-                                    <span class="popupVideo">
-                                        <a data-video="R6od9USvgU8">
-                                            <i class="fab fa-youtube-square"></i> Youtube
-                                        </a>
-                                    </span>
-                                    <a target=_blank href="https://github.com/HOBOOK/Lifee">
-                                        <i class="fab fa-github"></i> Git hub
-                                    </a>
-                                    <a target=_blank href="https://play.google.com/store/apps/details?id=com.jegh.getajob">
-                                        <i class="fas fa-link"></i> Link
+                                    <a target=_blank ng-repeat="info in project.info" ng-href="{{info.href}}" class="block">
+                                        <i ng-class="getCardInfoImage(info.type)"></i> {{info.type}}
                                     </a>
                                 </span>
                             </div>
@@ -556,7 +344,7 @@
     <!-- js -->
     <script src="js/language.js"></script>
     <script src="js/menu.js"></script>
-    <script data-cfasync="false" src="form-submission-handler.js"></script>
+<!--    <script data-cfasync="false" src="form-submission-handler.js"></script>-->
     <script data-cfasync="false" type="text/javascript"
             src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
 

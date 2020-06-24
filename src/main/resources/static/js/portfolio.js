@@ -1,7 +1,7 @@
 var app = angular.module('app', ['ngAnimate','ngSanitize', 'ui.bootstrap'])
 
-app.controller('projectController', function ($scope, $http, $compile, $uibModal) {
-    $scope.projects = [
+app.controller('projectController', function ($scope, $http, $compile, $uibModal, $filter) {
+    var projects = [
         {
             type: "Web",
             title: "나누미",
@@ -62,7 +62,7 @@ app.controller('projectController', function ($scope, $http, $compile, $uibModal
             }]
         },
         {
-            type: "Android App",
+            type: "Mobile App",
             title: "히스토아(HistoAR)",
             description: "증강현실을 이용한 역사 탐방 앱",
             image: "img/i_11.png",
@@ -134,6 +134,33 @@ app.controller('projectController', function ($scope, $http, $compile, $uibModal
         }
     ];
 
+    $scope.projects = projects;
+    $scope.selectedTagNumber = 0;
+
+    $scope.filter = function(type){
+        $scope.projects = [];
+        if (type === 1){
+            $scope.projects = $filter('filter')(projects, {type: 'Web'});
+        }else if(type === 2){
+            $scope.projects = $filter('filter')(projects, {type: 'Mobile App'});
+        }else if(type === 3){
+            $scope.projects = $filter('filter')(projects, {type: 'Mobile Game'});
+        }else if(type === 4){
+            $scope.projects = $filter('filter')(projects, {type: 'Blog'});
+        }else{
+            $scope.projects = projects;
+        }
+        $scope.selectedTagNumber = type;
+    }
+
+    $scope.selectedTag = function(type){
+        if(type === $scope.selectedTagNumber){
+            return "selected";
+        }else{
+            return "";
+        }
+    }
+
     $scope.getCardInfoImage = function(type){
         if (type === 'Git Hub'){
             return "fab fa-github"
@@ -183,6 +210,43 @@ app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) 
     }
     $scope.cancel = function() {
         $uibModalInstance.dismiss('cancel');
+    }
+})
+
+app.controller('aboutController', function ($scope, $http, $compile, $uibModal, $filter) {
+    $scope.targetIndex = 0;
+    $scope.skills = [{
+        title: "Java",
+        image: "img/skill_java.png",
+        info: [{
+            description: "가장 익숙하고 자신있는 언어입니다."
+        },{
+            description: "코딩테스트 주언어로 사용하고있습니다."
+        },{
+            description: "다양한 웹, 앱 프로젝트 경험이 있는 언어입니다."
+        }]
+    },{
+        title: "C#",
+        image: "img/skill_csharp.png",
+        info: [{
+            description: "Winform 프로그래밍을 할 수 있습니다."
+        },{
+            description: ".Net Framework 환경에서 웹 솔루션 유지보수를 한 경험이 있습니다."
+        },{
+            description: "Unity 엔진을 이용해 모바일 게임을 출시한 경험이 있습니다."
+        }]
+    }];
+
+    $scope.selectAbout = function (index) {
+        $scope.targetIndex = index;
+    }
+
+    $scope.selectedAbout = function (index) {
+        if(index === $scope.targetIndex){
+            return "selected";
+        }else{
+            return "";
+        }
     }
 })
 

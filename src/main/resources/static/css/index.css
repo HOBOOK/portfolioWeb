@@ -380,6 +380,35 @@ p{
     background-color: #F9F9F9;
     color: #555555;
 }
+.card_tags_wrapper{
+    width: 100%;
+}
+.card_tags{
+    width: 100%;
+    list-style: none;
+    display: inline-block;
+
+}
+.card_tags li{
+    font-size: 20px;
+    margin-right:20px;
+    display: inline-block;
+    cursor: pointer;
+    transition: color 0.1s ease-in-out;
+    -webkit-transition: color 0.1s ease-in-out;
+    -moz-transition: color 0.1s ease-in-out;
+    -o-transition: color 0.1s ease-in-out;
+    opacity: 1;
+}
+.card_tags li:hover{
+    font-weight: bold;
+    color:black;
+}
+.card_tags li.selected{
+    font-weight: bold;
+    color:black;
+}
+
 .cards_wrapper{
     max-width:100%;
     display: grid;
@@ -399,11 +428,24 @@ p{
     flex-direction: column;
     background-color: #f0f0f0;
     cursor: pointer;
-    transition: all 0.3s ease 0s;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    -webkit-transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     border-radius: 10px;
+    opacity: 1;
 }
 .card:hover{
     transform: translateY(-7px);
+}
+.card.ng-leave{
+    opacity: 0;
+}
+.card.ng-enter {
+    opacity: 0;
+}
+.card.ng-enter-active {
+    opacity: 1;
 }
 
 .card_container{
@@ -442,7 +484,7 @@ p{
     background-color: #333333;
     border-radius: 15px;
     display: inline-block;
-    transition: 0.3s ease 0s;
+    transition: background-color 0.3s ease 0s;
 }
 .card_info a:hover{
     background-color: #454545;
@@ -523,6 +565,7 @@ p{
     display: inline-block;
     width:100%;
 }
+
 .about_card{
     margin: 0 auto;
     background-color: white;
@@ -533,7 +576,7 @@ p{
     box-shadow: 5px 5px 10px -2px rgba(0,0,0,0.15);
     border-radius: 10px;
     text-align: left;
-    transition: 0.3s ease 0s;
+    transition: transform 0.3s ease 0s;
     cursor: pointer;
 }
 .about_card:hover{
@@ -543,63 +586,64 @@ p{
     text-align: center;
     margin-top:10px;
 }
-.about_col_1{
-    width:55%;
-    min-height: 100%;
-    display: inline-block;
-    vertical-align: top;
-}
-.about_col_2{
-    margin-left: 3%;
-    width:40%;
-    min-height: 100%;
-    display: inline-block;
-    vertical-align: top;
-}
 .scene_about_wrap{
-    max-width: 80%;
+    max-width: calc(100% - 500px);
     width:100%;
     font-family: NanumGothic;
     margin:0 auto;
     border-bottom: 1px solid rgba(0,0,0,0.1);
     overflow-x:hidden;
 }
-.scene_about_title{
-    color: #333333;
-    font-weight: bold;
-    font-family: nixgonfontsL;
-    font-size: 17px;
-    text-align: left;
-    padding-bottom: 10px;
-    margin-bottom:30px;
-    margin-left: 20px;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-}
+
 .scene_about i{
     font-size: 18px;
     color: springgreen;
     padding-right: 20px;
 }
-#scene_profile{
-    height: 300px;
 
+.about_menu_wrapper{
+    position: absolute;
+}
+.about_menu_wrapper ul{
+    list-style: none;
+}
+.about_menu_wrapper li{
+    text-align: left;
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.1s color ease-in-out;
+    -o-transition: 0.1s color ease-in-out;
+    -moz-transition: 0.1s color ease-in-out;
+    -webkit-transition: 0.1s color ease-in-out;
+}
+.about_menu_wrapper li:hover{
+    color: black;
+    font-weight: bold;
+}
+.about_menu_wrapper li.selected{
+    color: black;
+    font-weight: bold;
+}
+#scene_profile{
+    padding-bottom: 150px;
 }
 #scene_profile img{
     border-radius: 100%;
 }
 #scene_keyword{
-    height: 300px;
+    margin-top: 60px;
 }
 .about_keyword ul{
     list-style: none;
-    margin: 0;
     padding: 0;
-    text-align: left;
+    display: inline-block;
+    margin:0 auto;
+
 }
 .about_keyword li{
-    float: left;
     margin-bottom:20px;
     width: 100%;
+    text-align: left;
 }
 .about_keyword li i{
     width:40px;
@@ -610,6 +654,7 @@ p{
     border-radius: 100%;
     color:springgreen;
     display: inline-block;
+
 }
 .about_keyword li div{
     display: inline-block;
@@ -618,10 +663,10 @@ p{
     font-weight: bold;
     margin-left: 15px;
     display: inline-block;
+
 }
 .about_keyword li span{
-    font-weight: bold;
-    color: darkgray;
+    font-size:18px;
     margin-left: 30px;
 }
 .name_wrap{
@@ -729,22 +774,32 @@ p{
 #scene_skill ul{
     list-style: none;
     padding: 0;
-    margin: 0;
 }
-#scene_skill ul li{
-    display: block;
-    font-family: nanumSquareRoundM;
-    font-weight: normal;
-    width:95%;
-    height: 80px;
-}
+
 .skill_type{
-    float: left;
     margin-left: 0;
     width:120px;
-    height: 80px;
+    height: 60px;
     display: inline-block;
 }
+.skill_type span{
+    font-weight: bold;
+    font-size: 16px;
+}
+.skill_info_wrapper{
+    width: 100%;
+    display: inline-block;
+}
+.skill_info_wrapper ul{
+    width: 100%;
+    display: inline-block;
+    text-align: left;
+    padding: 0;
+}
+.skill_info_wrapper li{
+    margin-bottom: 12px;
+}
+
 
 .skill_Proficiency_percent span{
     background-color: rgba(0,0,0,0.2);
@@ -757,18 +812,11 @@ p{
     float:right;
 }
 .skill_category{
-    margin-left: 10px;
-    margin-right: 10px;
-    font-weight: bold;
-    color: darkgray;
+    margin:20px 0 20px 0;
     display: block;
-    margin-top:20px;
-    margin-bottom:20px;
-    background-color: royalblue;
-    font-weight: bold;
-    color:white;
+    font-size: 20px;
     padding: 3px;
-    border-radius: 5px;
+    color:black;
 }
 .skill_Proficiency{
     float: right;

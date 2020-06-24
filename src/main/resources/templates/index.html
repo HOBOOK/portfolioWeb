@@ -70,7 +70,7 @@
                     </a>
                 </li>
                 <li>
-                    <a data-langNum="header_menu_1" class="menu_click" href="works">작업물</a>
+                    <a data-langNum="header_menu_1" class="menu_click" href="works">프로젝트</a>
                 </li>
                 <li>
                     <a data-langNum="header_menu_2" class="menu_click" href="contact">연락</a>
@@ -90,166 +90,185 @@
                         </span>
                     </h1>
                     <h2 data-langNum="start_title_0" class="start_text">방문해 주셔서 감사합니다.</h2>
-                    <div class="languageWrap">
-                        <input class="tgl tgl-flip" id="cb5" type="checkbox"/>
-                        <label class="tgl-btn" data-tg-off="English" data-tg-on="한국어" for="cb5"></label>
-                    </div>
+                    <!--언어 변경 버튼-->
+<!--                    <div class="languageWrap">-->
+<!--                        <input class="tgl tgl-flip" id="cb5" type="checkbox"/>-->
+<!--                        <label class="tgl-btn" data-tg-off="English" data-tg-on="한국어" for="cb5"></label>-->
+<!--                    </div>-->
                     <div class="down_button">
                         <a class="menu_click" href="about"><i class="fas fa-chevron-down"></i></a>
                     </div>
 
                 </div>
             </div>
-            <section class="scene two" id="about">
-                <h1 class="scene_title">About</h1>
+            <section class="scene two" id="about" ng-controller="aboutController">
+                <h1 class="scene_title">저는 이런 사람입니다</h1>
+                <div class="about_menu_wrapper">
+                    <ul>
+                        <li ng-class="selectedAbout(0)" ng-click="selectAbout(0)">Introduce</li>
+                        <li ng-class="selectedAbout(1)" ng-click="selectAbout(1)">Skills</li>
+                        <li ng-class="selectedAbout(2)" ng-click="selectAbout(2)">Timeline</li>
+                    </ul>
+                </div>
                 <div class="scene_about_wrap">
-                    <div class="about_col_1">
-                        <div class="scene_about" id="scene_profile">
-                            <div class="scene_about_title"><i class="fas fa-history"></i>Introduce</div>
-                            <div class="about_card">
-                                <div style="display:inline-block; float:left; height: 100%; padding-right:20px;">
-                                    <img src="img/profile2.png" width="120" height="120" alt="프로필사진"/>
-                                    <p data-langNum="about_name" class="showAnimation2">박 경 호</p>
-                                </div>
-                                <div style="height: 100%;">
-                                <span class="name_wrap">
-                                    <span class="showAnimation2">Programmer | Full-Stack</span>
-                                </span>
-                                    <br/>
-                                    <br/>
-                                    <span style="text-align: left;" data-langNum="about_greetings_0" class="showAnimation2">안녕하세요! 제 포트폴리오 사이트에 와주셔서 감사합니다. 항상 창의적이고 책임감있게 일하겠습니다.</span>
-                                </div>
+                    <div class="scene_about" id="scene_profile" ng-show="targetIndex===0">
+                        <div class="about_card">
+                            <div style="display:inline-block; float:left; height: 100%; padding-right:20px;">
+                                <img src="img/profile2.png" width="120" height="120" alt="프로필사진"/>
+                                <p data-langNum="about_name" class="showAnimation2">박 경 호</p>
+                            </div>
+                            <div style="height: 100%;">
+                            <span class="name_wrap">
+                                <span class="showAnimation2">Programmer | Full-Stack</span>
+                            </span>
+                                <br/>
+                                <br/>
+                                <span style="text-align: left;" data-langNum="about_greetings_0" class="showAnimation2">안녕하세요! 제 포트폴리오 사이트에 와주셔서 감사합니다. 항상 창의적이고 책임감있게 일하겠습니다.</span>
                             </div>
                         </div>
-                        <div class="scene_about" id="scene_education">
-                            <div class="scene_about_title"><i class="fas fa-history"></i>Timeline</div>
-                            <div id="timeline-content">
-                                <ul class="timeline">
-                                    <li class="event" data-date="2020">
-                                        <h3 data-langNum="timeline_title_11">나누미</h3>
-                                        <h5 data-langNum="timeline_subtitle_11">다우기술 인턴</h5>
-                                        <h6>Spring Boot, REST API, Node.Js, Maria DB</h6>
-                                        <p data-langNum="timeline_info_11">다우기술에서 인턴 프로젝트를 진행했습니다.(05-18 ~ 06-12)</p>
-                                    </li>
-                                    <li class="event" data-date="2020">
-                                        <h3 data-langNum="timeline_title_10">TOMO</h3>
-                                        <h5 data-langNum="timeline_subtitle_10">개인 프로젝트</h5>
-                                        <h6>Spring Boot, AngularJs, AWS, MS-SQL</h6>
-                                        <p data-langNum="timeline_info_10">메모, 일정 관리 웹사이트 개발중입니다.(03-01~)</p>
-                                    </li>
-                                    <li class="event" data-date="2020">
-                                        <h3 data-langNum="timeline_title_0">Portfolio Web</h3>
-                                        <h5 data-langNum="timeline_subtitle_0">개인 프로젝트</h5>
-                                        <h6>SpringFramework, AngularJs, AWS</h6>
-                                        <p data-langNum="timeline_info_0">포트폴리오 웹사이트를 개설하였습니다.</p>
-                                    </li>
-                                    <li class="event" data-date="2019">
-                                        <h3 data-langNum="timeline_title_1">Push Cube</h3>
-                                        <h5 data-langNum="timeline_subtitle_1">모바일 게임 프로젝트</h5>
-                                        <h6>C#, Unity Engine, Facebook SDK, Google API</h6>
-                                        <p data-langNum="timeline_info_1">모바일 퍼즐 게임 'Push Cube'를 1인 개발 및 출시하였습니다.</p>
-                                    </li>
-                                    <li class="event" data-date="2019">
-                                        <h3 data-langNum="timeline_title_2">Flat Heroes</h3>
-                                        <h5 data-langNum="timeline_subtitle_2">모바일 게임 프로젝트</h5>
-                                        <h6>C#, Unity Engine, Firebase SDK, Google API</h6>
-                                        <p data-langNum="timeline_info_2">모바일 RPG 게임 'Flat Heroes'를 1인 개발 및 출시하였습니다.</p>
-                                    </li>
-                                    <li class="event" data-date="2018">
-                                        <h3 data-langNum="timeline_title_3">NSE Silkroad</h3>
-                                        <h5 data-langNum="timeline_subtitle_3">ALM 솔루션 유지보수</h5>
-                                        <h6>C#, .NET Core, ExtJs, Sql server</h6>
-                                        <p data-langNum="timeline_info_3">ALM 솔루션 회사에서 소스 파일 형상관리 모듈 유지 보수 및 기능 개발을 하였습니다.</p>
-                                    </li>
-                                    <li class="event" data-date="2018">
-                                        <h3 data-langNum="timeline_title_4">경상대학교 경영정보학과 졸업</h3>
-                                        <h5 data-langNum="timeline_subtitle_4">공부</h5>
-                                        <h6>MIS</h6>
-                                        <p data-langNum="timeline_info_4">IT 융합 솔루션 트랙제 이수, 학점 4.0/4.5으로 졸업을 하였습니다.</p>
-                                    </li>
-                                    <li class="event" data-date="2017">
-                                        <h3 data-langNum="timeline_title_5">Saghistory</h3>
-                                        <h5 data-langNum="timeline_subtitle_5">개인 프로젝트</h5>
-                                        <h6>Java, JSP, Sql server, Tomcat</h6>
-                                        <p data-langNum="timeline_info_5">여자친구와 같이 사진 저장, 블로그 용도로 만든 웹사이트를 개발하였습니다.</p>
-                                    </li>
-                                    <li class="event" data-date="2017">
-                                        <h3 data-langNum="timeline_title_6">안드로이드 앱 HistoAR</h3>
-                                        <h5 data-langNum="timeline_subtitle_6">경진대회 프로젝트</h5>
-                                        <h6>Java, Android Studio, KaKao API, Google Maps API</h6>
-                                        <p data-langNum="timeline_info_6">증강현실을 이용한 역사 탐방 모바일 APP 시스템 설계 및 구현을 하였습니다.</p>
-                                    </li>
-                                    <li class="event" data-date="2016">
-                                        <h3 data-langNum="timeline_title_7">반응형 웹페이지 Do the G</h3>
-                                        <h5 data-langNum="timeline_subtitle_7">경진대회 프로젝트</h5>
-                                        <h6>Java, JSP, Sql server, Tomcat</h6>
-                                        <p data-langNum="timeline_info_7">교내 콘텐츠 제공 목적의 웹사이트 시스템 설계 및 구현을 하였습니다.</p>
-                                    </li>
-                                    <li class="event" data-date="2015">
-                                        <h3 data-langNum="timeline_title_8">프로그래밍 공부 시작</h3>
-                                        <h5 data-langNum="timeline_subtitle_8">공부</h5>
-                                        <h6>C#, Java, Sql server</h6>
-                                        <p data-langNum="timeline_info_8">본격적으로 프로그래밍 공부를 시작하였습니다.</p>
-                                    </li>
-                                    <li class="event" data-date="2012">
-                                        <h3 data-langNum="timeline_title_9">경상대학교 경영정보학과 입학</h3>
-                                        <h5 data-langNum="timeline_subtitle_9">공부</h5>
-                                        <h6>MIS</h6>
-                                        <p data-langNum="timeline_info_9">국립 경상대학교에 입학하였습니다.</p>
-                                    </li>
+                        <div id="scene_keyword">
+                            <div class="about_keyword">
+                                <ul>
+                                    <li class="showAnimation2"><i class="fas fa-fire"></i><div><h4 data-langNum="keyword_title_0">'열정'</h4><span data-langNum="keyword_information_0">저는 강한 추진력을 가지고 열정적으로 일하는 사람입니다.</span></div></li>
+                                    <li class="showAnimation2"><i class="fas fa-walking"></i><div><h4 data-langNum="keyword_title_1">'도전'</h4><span data-langNum="keyword_information_1">개발에 있어 새로운 도전을 좋아하는 사람입니다.</span></div></li>
+                                    <li class="showAnimation2"><i class="fas fa-seedling"></i><div><h4 data-langNum="keyword_title_2">'성장'</h4><span data-langNum="keyword_information_2">아직 많이 배우고 성장하고 싶은 주니어 개발자 입니다.</span></div></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="about_col_2">
-                        <div class="scene_about" id="scene_keyword">
-                            <div class="scene_about_title"><i class="fas fa-history"></i>Keyword</div>
-                            <div class="about_keyword">
-                                <ul>
-                                    <li class="showAnimation2"><i class="fas fa-fire"></i><div><h4 data-langNum="keyword_title_0">'열정'</h4><span data-langNum="keyword_information_0">뚜렷한 목표와 열정으로 일하는 프로그래머</span></div></li>
-                                    <li class="showAnimation2"><i class="fas fa-walking"></i><div><h4 data-langNum="keyword_title_1">'도전'</h4><span data-langNum="keyword_information_1">새로운 것을 도전하는 걸 망설이지 않는 프로그래머</span></div></li>
-                                    <li class="showAnimation2"><i class="fas fa-seedling"></i><div><h4 data-langNum="keyword_title_2">'성장'</h4><span data-langNum="keyword_information_2">항상 배움의 자세로 성장하는 프로그래머</span></div></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="scene_about" id="scene_skill">
-                            <div class="scene_about_title"><i class="fas fa-laptop-code"></i>Skills</div>
-                            <span class="skill_category">Programming Language</span>
+                    <div class="scene_about" id="scene_skill" ng-show="targetIndex===1">
+                        <span class="skill_category">Programming Language</span>
+                        <div class="skill_info_wrapper">
                             <ul>
-                                <li><div class="skill_type"><img width="48" height="48" src="img/skill_csharp.png"/><p>C#</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 90%;background-color: skyblue;border-radius: 5px;"><span>5 years</span><p style="vertical-align: center;font-weight: bold; color:white;">90%</p></div></div></li>
-                                <li><div class="skill_type"><img width="48" height="48" src="img/skill_java.png"/><p>Java</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 85%;background-color: skyblue;border-radius: 5px;"><span>4 years</span><p style="vertical-align: center;font-weight: bold;color:white;">85%</p></div></div></li>
-                                <li><div class="skill_type"><img width="48" height="48" src="img/skill_javascript.png"/><p>Javascript</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 50%;background-color: skyblue;border-radius: 5px;"><span>2 years</span><p style="vertical-align: center;font-weight: bold;color:white;">50%</p></div></div></li>
-                                <li><div class="skill_type"><img width="48" height="48" src="img/skill_jsp.png"/><p>JSP</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 50%;background-color: skyblue;border-radius: 5px;"><span>1 year</span><p style="vertical-align: center;font-weight: bold;color:white;">50%</p></div></div></li>
-                                <li><div class="skill_type"><img width="48" height="48" src="img/skill_python.png"/><p>Python</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 30%;background-color: skyblue;border-radius: 5px;"><span>studying</span><p style="vertical-align: center;font-weight: bold;color:white;">30%</p></div></div></li>
-                            </ul>
-                            <span class="skill_category">Framework</span>
-                            <ul>
-                                <li><div class="skill_type"><img width="48" height="48" src="img/skill_spring.png"/><p>Spring Boot</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 80%;background-color: skyblue;border-radius: 5px;"><span>6 month</span><p style="vertical-align: center;font-weight: bold;color:white;">80%</p></div></div></li>
-                                <li><div class="skill_type"><img width="48" height="48" src="img/skill_net.png"/><p>.NET Framework</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 50%;background-color: skyblue;border-radius: 5px;"><span>2 years</span><p style="vertical-align: center;font-weight: bold;color:white;">50%</p></div></div></li>
-                                <li><div class="skill_type"><img width="48" height="48" src="img/skill_angularjs.png"/><p>Angular Js</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 40%;background-color: skyblue;border-radius: 5px;"><span>3 months</span><p style="vertical-align: center;font-weight: bold;color:white;">40%</p></div></div></li>
-                            </ul>
-                            <span class="skill_category">IDE</span>
-                            <ul>
-                                <li><div class="skill_type"><img width="48" height="48" src="img/skill_visualstudio.png"/><p>Visual Studio</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 85%;background-color: skyblue;border-radius: 5px;"><span>5 yeas</span><p style="vertical-align: center;font-weight: bold;color:white;">85%</p></div></div></li>
-                                <li><div class="skill_type"><img width="48" height="48" src="img/skill_intellij.png"/><p>Intelli J</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 70%;background-color: skyblue;border-radius: 5px;"><span>2 years</span><p style="vertical-align: center;font-weight: bold;color:white;">70%</p></div></div></li>
-                                <li><div class="skill_type"><img width="48" height="48" src="img/skill_android.png"/><p>Android Studio</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 50%;background-color: skyblue;border-radius: 5px;"><span>1 year</span><p style="vertical-align: center;font-weight: bold;color:white;">50%</p></div></div></li>
-                            </ul>
-                            <span class="skill_category">DBMS, Engine, Cloud Service, Version Control</span>
-                            <ul>
-                                <li><div class="skill_type"><img width="48" height="48" src="img/skill_unity.png"/><p>Unity Engine</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 80%;background-color: skyblue;border-radius: 5px;"><span>2 years</span><p style="vertical-align: center;font-weight: bold;color:white;">80%</p></div></div></li>
-                                <li><div class="skill_type"><img width="48" height="48" src="img/skill_mssql.png"/><p>SQL server</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 70%;background-color: skyblue;border-radius: 5px;"><span>3 years</span><p style="vertical-align: center;font-weight: bold;color:white;">70%</p></div></div></li>
-                                <li><div class="skill_type"><img width="48" height="48" src="img/skill_maria.png"/><p>Maria DB</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 20%;background-color: skyblue;border-radius: 5px;"><span>1 month</span><p style="vertical-align: center;font-weight: bold;color:white;">20%</p></div></div></li>
-                                <li><div class="skill_type"><img width="48" height="48" src="img/skill_git.png"/><p>Git</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 50%;background-color: skyblue;border-radius: 5px;"><span>1 year</span><p style="vertical-align: center;font-weight: bold;color:white;">50%</p></div></div></li>
-                                <li><div class="skill_type"><img width="48" height="48" src="img/skill_firebase.png"/><p>Google Firebase</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 50%;background-color: skyblue;border-radius: 5px;"><span>1 year</span><p style="vertical-align: center;font-weight: bold;color:white;">50%</p></div></div></li>
-                                <li><div class="skill_type"><img width="48" height="48" src="img/skill_aws.png"/><p>AWS</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 30%;background-color: skyblue;border-radius: 5px;"><span>2 months</span><p style="vertical-align: center;font-weight: bold;color:white;">30%</p></div></div></li>
+                                <li ng-repeat="skill in skills">
+                                    <div class="skill_type"><img width="48" height="48" ng-src="{{skill.image}}"/>
+                                        <span>{{skill.title}}</span>
+                                    </div>
+                                    <ul>
+                                        <li ng-repeat="info in skill.info">- {{info.description}}</li>
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
 
+<!--                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_java.png"/><p>Java</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 85%;background-color: skyblue;border-radius: 5px;"><span>4 years</span><p style="vertical-align: center;font-weight: bold;color:white;">85%</p></div></div></li>-->
+<!--                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_javascript.png"/><p>Javascript</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 50%;background-color: skyblue;border-radius: 5px;"><span>2 years</span><p style="vertical-align: center;font-weight: bold;color:white;">50%</p></div></div></li>-->
+<!--                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_jsp.png"/><p>JSP</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 50%;background-color: skyblue;border-radius: 5px;"><span>1 year</span><p style="vertical-align: center;font-weight: bold;color:white;">50%</p></div></div></li>-->
+<!--                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_python.png"/><p>Python</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 30%;background-color: skyblue;border-radius: 5px;"><span>studying</span><p style="vertical-align: center;font-weight: bold;color:white;">30%</p></div></div></li>-->
+
+                        <span class="skill_category">Framework</span>
+                        <ul>
+                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_spring.png"/><p>Spring Boot</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 80%;background-color: skyblue;border-radius: 5px;"><span>6 month</span><p style="vertical-align: center;font-weight: bold;color:white;">80%</p></div></div></li>
+                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_net.png"/><p>.NET Framework</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 50%;background-color: skyblue;border-radius: 5px;"><span>2 years</span><p style="vertical-align: center;font-weight: bold;color:white;">50%</p></div></div></li>
+                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_angularjs.png"/><p>Angular Js</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 40%;background-color: skyblue;border-radius: 5px;"><span>3 months</span><p style="vertical-align: center;font-weight: bold;color:white;">40%</p></div></div></li>
+                        </ul>
+                        <span class="skill_category">IDE</span>
+                        <ul>
+                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_visualstudio.png"/><p>Visual Studio</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 85%;background-color: skyblue;border-radius: 5px;"><span>5 yeas</span><p style="vertical-align: center;font-weight: bold;color:white;">85%</p></div></div></li>
+                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_intellij.png"/><p>Intelli J</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 70%;background-color: skyblue;border-radius: 5px;"><span>2 years</span><p style="vertical-align: center;font-weight: bold;color:white;">70%</p></div></div></li>
+                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_android.png"/><p>Android Studio</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 50%;background-color: skyblue;border-radius: 5px;"><span>1 year</span><p style="vertical-align: center;font-weight: bold;color:white;">50%</p></div></div></li>
+                        </ul>
+                        <span class="skill_category">DBMS, Engine, Cloud Service, Version Control</span>
+                        <ul>
+                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_unity.png"/><p>Unity Engine</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 80%;background-color: skyblue;border-radius: 5px;"><span>2 years</span><p style="vertical-align: center;font-weight: bold;color:white;">80%</p></div></div></li>
+                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_mssql.png"/><p>SQL server</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 70%;background-color: skyblue;border-radius: 5px;"><span>3 years</span><p style="vertical-align: center;font-weight: bold;color:white;">70%</p></div></div></li>
+                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_maria.png"/><p>Maria DB</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 20%;background-color: skyblue;border-radius: 5px;"><span>1 month</span><p style="vertical-align: center;font-weight: bold;color:white;">20%</p></div></div></li>
+                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_git.png"/><p>Git</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 50%;background-color: skyblue;border-radius: 5px;"><span>1 year</span><p style="vertical-align: center;font-weight: bold;color:white;">50%</p></div></div></li>
+                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_firebase.png"/><p>Google Firebase</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 50%;background-color: skyblue;border-radius: 5px;"><span>1 year</span><p style="vertical-align: center;font-weight: bold;color:white;">50%</p></div></div></li>
+                            <li><div class="skill_type"><img width="48" height="48" src="img/skill_aws.png"/><p>AWS</p></div><div class="skill_Proficiency"><div class="skill_Proficiency_percent" style="float: right;height: 100%;width: 30%;background-color: skyblue;border-radius: 5px;"><span>2 months</span><p style="vertical-align: center;font-weight: bold;color:white;">30%</p></div></div></li>
+                        </ul>
+                    </div>
+                    <div class="scene_about" id="scene_education" ng-show="targetIndex===2">
+                        <div id="timeline-content">
+                            <ul class="timeline">
+                                <li class="event" data-date="2020">
+                                    <h3 data-langNum="timeline_title_11">나누미</h3>
+                                    <h5 data-langNum="timeline_subtitle_11">다우기술 인턴</h5>
+                                    <h6>Spring Boot, REST API, Node.Js, Maria DB</h6>
+                                    <p data-langNum="timeline_info_11">다우기술에서 인턴 프로젝트를 진행했습니다.(05-18 ~ 06-12)</p>
+                                </li>
+                                <li class="event" data-date="2020">
+                                    <h3 data-langNum="timeline_title_10">TOMO</h3>
+                                    <h5 data-langNum="timeline_subtitle_10">개인 프로젝트</h5>
+                                    <h6>Spring Boot, AngularJs, AWS, MS-SQL</h6>
+                                    <p data-langNum="timeline_info_10">메모, 일정 관리 웹사이트 개발중입니다.(03-01~)</p>
+                                </li>
+                                <li class="event" data-date="2020">
+                                    <h3 data-langNum="timeline_title_0">Portfolio Web</h3>
+                                    <h5 data-langNum="timeline_subtitle_0">개인 프로젝트</h5>
+                                    <h6>SpringFramework, AngularJs, AWS</h6>
+                                    <p data-langNum="timeline_info_0">포트폴리오 웹사이트를 개설하였습니다.</p>
+                                </li>
+                                <li class="event" data-date="2019">
+                                    <h3 data-langNum="timeline_title_1">Push Cube</h3>
+                                    <h5 data-langNum="timeline_subtitle_1">모바일 게임 프로젝트</h5>
+                                    <h6>C#, Unity Engine, Facebook SDK, Google API</h6>
+                                    <p data-langNum="timeline_info_1">모바일 퍼즐 게임 'Push Cube'를 1인 개발 및 출시하였습니다.</p>
+                                </li>
+                                <li class="event" data-date="2019">
+                                    <h3 data-langNum="timeline_title_2">Flat Heroes</h3>
+                                    <h5 data-langNum="timeline_subtitle_2">모바일 게임 프로젝트</h5>
+                                    <h6>C#, Unity Engine, Firebase SDK, Google API</h6>
+                                    <p data-langNum="timeline_info_2">모바일 RPG 게임 'Flat Heroes'를 1인 개발 및 출시하였습니다.</p>
+                                </li>
+                                <li class="event" data-date="2018">
+                                    <h3 data-langNum="timeline_title_3">NSE Silkroad</h3>
+                                    <h5 data-langNum="timeline_subtitle_3">ALM 솔루션 유지보수</h5>
+                                    <h6>C#, .NET Core, ExtJs, Sql server</h6>
+                                    <p data-langNum="timeline_info_3">ALM 솔루션 회사에서 소스 파일 형상관리 모듈 유지 보수 및 기능 개발을 하였습니다.</p>
+                                </li>
+                                <li class="event" data-date="2018">
+                                    <h3 data-langNum="timeline_title_4">경상대학교 경영정보학과 졸업</h3>
+                                    <h5 data-langNum="timeline_subtitle_4">공부</h5>
+                                    <h6>MIS</h6>
+                                    <p data-langNum="timeline_info_4">IT 융합 솔루션 트랙제 이수, 학점 4.0/4.5으로 졸업을 하였습니다.</p>
+                                </li>
+                                <li class="event" data-date="2017">
+                                    <h3 data-langNum="timeline_title_5">Saghistory</h3>
+                                    <h5 data-langNum="timeline_subtitle_5">개인 프로젝트</h5>
+                                    <h6>Java, JSP, Sql server, Tomcat</h6>
+                                    <p data-langNum="timeline_info_5">여자친구와 같이 사진 저장, 블로그 용도로 만든 웹사이트를 개발하였습니다.</p>
+                                </li>
+                                <li class="event" data-date="2017">
+                                    <h3 data-langNum="timeline_title_6">안드로이드 앱 HistoAR</h3>
+                                    <h5 data-langNum="timeline_subtitle_6">경진대회 프로젝트</h5>
+                                    <h6>Java, Android Studio, KaKao API, Google Maps API</h6>
+                                    <p data-langNum="timeline_info_6">증강현실을 이용한 역사 탐방 모바일 APP 시스템 설계 및 구현을 하였습니다.</p>
+                                </li>
+                                <li class="event" data-date="2016">
+                                    <h3 data-langNum="timeline_title_7">반응형 웹페이지 Do the G</h3>
+                                    <h5 data-langNum="timeline_subtitle_7">경진대회 프로젝트</h5>
+                                    <h6>Java, JSP, Sql server, Tomcat</h6>
+                                    <p data-langNum="timeline_info_7">교내 콘텐츠 제공 목적의 웹사이트 시스템 설계 및 구현을 하였습니다.</p>
+                                </li>
+                                <li class="event" data-date="2015">
+                                    <h3 data-langNum="timeline_title_8">프로그래밍 공부 시작</h3>
+                                    <h5 data-langNum="timeline_subtitle_8">공부</h5>
+                                    <h6>C#, Java, Sql server</h6>
+                                    <p data-langNum="timeline_info_8">본격적으로 프로그래밍 공부를 시작하였습니다.</p>
+                                </li>
+                                <li class="event" data-date="2012">
+                                    <h3 data-langNum="timeline_title_9">경상대학교 경영정보학과 입학</h3>
+                                    <h5 data-langNum="timeline_subtitle_9">공부</h5>
+                                    <h6>MIS</h6>
+                                    <p data-langNum="timeline_info_9">국립 경상대학교에 입학하였습니다.</p>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
             <section class="scene one" id="works" ng-controller="projectController">
-                <h1 class="scene_title">Works</h1>
+                <h1 class="scene_title">저는 이런 프로젝트를 해봤습니다</h1>
+                <div class="card_tags_wrapper">
+                    <ul class="card_tags">
+                        <li ng-class="selectedTag(0)" ng-click="filter(0)">ALL</li>
+                        <li ng-class="selectedTag(1)" ng-click="filter(1)"># Web</li>
+                        <li ng-class="selectedTag(2)" ng-click="filter(2)"># Mobile App</li>
+                        <li ng-class="selectedTag(3)" ng-click="filter(3)"># Mobile Game</li>
+                        <li ng-class="selectedTag(4)" ng-click="filter(4)"># Blog</li>
+                    </ul>
+                </div>
                 <div class="cards_wrapper">
                     <div class="cards">
                         <div class="card" ng-repeat="project in projects" ng-click="showModal($event)">
@@ -282,7 +301,7 @@
                 </div>
             </section>
             <section class="scene three" id="contact">
-                <h1 class="scene_title">Contact</h1>
+                <h1 class="scene_title">연락주세요</h1>
                 <div class="contact_mail">
                     <form onsubmit="return formCheck(this)" class="gform" method="POST" data-email="pkh879@gmail.com"
                           action="https://script.google.com/macros/s/AKfycbzWseXWbbJegzYE0gErbyA2FBr3IyCgRoYoE7fjz4YcAnwR3xg/exec">

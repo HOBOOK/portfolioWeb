@@ -12,7 +12,9 @@
         </div>
         <div>
             <h4>기여하고 배운점</h4>
-            {{project.ability}}
+            <ul>
+                <li ng-repeat="ability in project.ability">{{ability}}</li>
+            </ul>
         </div>
         <div>
             <h4>기술 스택</h4>

@@ -631,9 +631,7 @@ p{
 #scene_profile{
     padding-bottom: 150px;
 }
-#scene_profile img{
-    border-radius: 100%;
-}
+
 #scene_keyword{
     margin-top: 60px;
 }
@@ -1241,6 +1239,11 @@ footer span{
     .skill_category li{
         font-size: 14px;
     }
+    .about_menu_wrapper li{
+        font-size:21px;
+        margin-right:8px;
+        display: inline-block;
+    }
     .card {
         grid-column-end: span 6;
     }
@@ -1263,6 +1266,9 @@ footer span{
     }
     .card{
         grid-column-end: span 10;
+    }
+    h1{
+        font-size: 24px;
     }
 }
 

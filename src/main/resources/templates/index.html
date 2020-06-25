@@ -82,7 +82,7 @@
         </header>
         <!-- 메인 레이아웃 -->
         <div class="main">
-            <div class="start">
+            <div class="start" ng-controller="mainController">
                 <div style="position:relative; width: 100%; min-height:720px; height: 100%;">
                     <h1>
                         <span href="" class="typewrite" data-period="2000" data-type='[ "G.H Park.", "Programmer", "Welcome!" ]'>
@@ -90,6 +90,7 @@
                         </span>
                     </h1>
                     <h2 data-langNum="start_title_0" class="start_text">방문해 주셔서 감사합니다.</h2>
+                    <p>{{version}}</p>
                     <!--언어 변경 버튼-->
 <!--                    <div class="languageWrap">-->
 <!--                        <input class="tgl tgl-flip" id="cb5" type="checkbox"/>-->
@@ -208,73 +209,61 @@
                                 <li class="event" data-date="2020">
                                     <h3 data-langNum="timeline_title_11">나누미</h3>
                                     <h5 data-langNum="timeline_subtitle_11">다우기술 인턴</h5>
-                                    <h6>Spring Boot, REST API, Node.Js, Maria DB</h6>
                                     <p data-langNum="timeline_info_11">다우기술에서 인턴 프로젝트를 진행했습니다.(05-18 ~ 06-12)</p>
                                 </li>
                                 <li class="event" data-date="2020">
                                     <h3 data-langNum="timeline_title_10">Toomo</h3>
                                     <h5 data-langNum="timeline_subtitle_10">개인 프로젝트</h5>
-                                    <h6>Spring Boot, AngularJs, AWS, MS-SQL</h6>
                                     <p data-langNum="timeline_info_10">메모, 일정 관리 웹사이트 개발중입니다.(03-01~)</p>
                                 </li>
                                 <li class="event" data-date="2020">
                                     <h3 data-langNum="timeline_title_0">Portfolio Web</h3>
                                     <h5 data-langNum="timeline_subtitle_0">개인 프로젝트</h5>
-                                    <h6>SpringFramework, AngularJs, AWS</h6>
                                     <p data-langNum="timeline_info_0">포트폴리오 웹사이트를 개설하였습니다.</p>
                                 </li>
                                 <li class="event" data-date="2019">
                                     <h3 data-langNum="timeline_title_1">Push Cube</h3>
                                     <h5 data-langNum="timeline_subtitle_1">모바일 게임 프로젝트</h5>
-                                    <h6>C#, Unity Engine, Facebook SDK, Google API</h6>
                                     <p data-langNum="timeline_info_1">모바일 퍼즐 게임 'Push Cube'를 1인 개발 및 출시하였습니다.</p>
                                 </li>
                                 <li class="event" data-date="2019">
                                     <h3 data-langNum="timeline_title_2">Flat Heroes</h3>
                                     <h5 data-langNum="timeline_subtitle_2">모바일 게임 프로젝트</h5>
-                                    <h6>C#, Unity Engine, Firebase SDK, Google API</h6>
                                     <p data-langNum="timeline_info_2">모바일 RPG 게임 'Flat Heroes'를 1인 개발 및 출시하였습니다.</p>
                                 </li>
                                 <li class="event" data-date="2018">
                                     <h3 data-langNum="timeline_title_3">NSE Silkroad</h3>
                                     <h5 data-langNum="timeline_subtitle_3">ALM 솔루션 유지보수</h5>
-                                    <h6>C#, .NET Core, ExtJs, Sql server</h6>
                                     <p data-langNum="timeline_info_3">ALM 솔루션 회사에서 소스 파일 형상관리 모듈 유지 보수 및 기능 개발을 하였습니다.</p>
                                 </li>
                                 <li class="event" data-date="2018">
                                     <h3 data-langNum="timeline_title_4">경상대학교 경영정보학과 졸업</h3>
                                     <h5 data-langNum="timeline_subtitle_4">공부</h5>
-                                    <h6>MIS</h6>
                                     <p data-langNum="timeline_info_4">IT 융합 솔루션 트랙제 이수, 학점 4.0/4.5으로 졸업을 하였습니다.</p>
                                 </li>
                                 <li class="event" data-date="2017">
                                     <h3 data-langNum="timeline_title_5">Saghistory</h3>
                                     <h5 data-langNum="timeline_subtitle_5">개인 프로젝트</h5>
-                                    <h6>Java, JSP, Sql server, Tomcat</h6>
                                     <p data-langNum="timeline_info_5">여자친구와 같이 사진 저장, 블로그 용도로 만든 웹사이트를 개발하였습니다.</p>
                                 </li>
                                 <li class="event" data-date="2017">
                                     <h3 data-langNum="timeline_title_6">안드로이드 앱 HistoAR</h3>
                                     <h5 data-langNum="timeline_subtitle_6">경진대회 프로젝트</h5>
-                                    <h6>Java, Android Studio, KaKao API, Google Maps API</h6>
                                     <p data-langNum="timeline_info_6">증강현실을 이용한 역사 탐방 모바일 APP 시스템 설계 및 구현을 하였습니다.</p>
                                 </li>
                                 <li class="event" data-date="2016">
                                     <h3 data-langNum="timeline_title_7">반응형 웹페이지 Do the G</h3>
                                     <h5 data-langNum="timeline_subtitle_7">경진대회 프로젝트</h5>
-                                    <h6>Java, JSP, Sql server, Tomcat</h6>
                                     <p data-langNum="timeline_info_7">교내 콘텐츠 제공 목적의 웹사이트 시스템 설계 및 구현을 하였습니다.</p>
                                 </li>
                                 <li class="event" data-date="2015">
                                     <h3 data-langNum="timeline_title_8">프로그래밍 공부 시작</h3>
                                     <h5 data-langNum="timeline_subtitle_8">공부</h5>
-                                    <h6>C#, Java, Sql server</h6>
                                     <p data-langNum="timeline_info_8">본격적으로 프로그래밍 공부를 시작하였습니다.</p>
                                 </li>
                                 <li class="event" data-date="2012">
                                     <h3 data-langNum="timeline_title_9">경상대학교 경영정보학과 입학</h3>
                                     <h5 data-langNum="timeline_subtitle_9">공부</h5>
-                                    <h6>MIS</h6>
                                     <p data-langNum="timeline_info_9">국립 경상대학교에 입학하였습니다.</p>
                                 </li>
                             </ul>
@@ -295,7 +284,7 @@
                 </div>
                 <div class="cards_wrapper">
                     <div class="cards">
-                        <div class="card" ng-repeat="project in projects" ng-click="showModal($event)">
+                        <div class="card" ng-repeat="project in projects" ng-click="showModal($event, project)">
                             <div class="card_container">
                                 <img ng-src="{{project.image}}"/>
                                 <div class="card_type">
@@ -385,7 +374,7 @@
     </div>
 
     <!-- js -->
-    <script src="js/language.js"></script>
+<!--    <script src="js/language.js"></script>-->
     <script src="js/menu.js"></script>
 <!--    <script data-cfasync="false" src="form-submission-handler.js"></script>-->
     <script data-cfasync="false" type="text/javascript"

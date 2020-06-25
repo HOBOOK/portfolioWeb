@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    hello
-</body>
-</html>
+<div class="wrapper">
+    <div ng-model="project" class="modal_wrapper">
+        <h1>{{project.title}}</h1>
+        <span>{{project.period}}</span>
+        <div>
+            <h4>목적</h4>
+            {{project.subject}}
+        </div>
+        <div>
+            <h4>프로젝트 설명</h4>
+            {{project.detail}}
+        </div>
+        <div>
+            <h4>기여하고 배운점</h4>
+            {{project.ability}}
+        </div>
+        <div>
+            <h4>기술 스택</h4>
+            {{project.skills}}
+        </div>
+    </div>
+
+</div>

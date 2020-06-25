@@ -1108,6 +1108,20 @@ footer span{
     background-color: #333333;
 }
 
+.modal_wrapper{
+    font-family: NanumGothic;
+    margin: 30px;
+}
+.modal_wrapper h1,.modal_wrapper h2,.modal_wrapper h3,.modal_wrapper h4,.modal_wrapper h5,.modal_wrapper h6{
+    color: black;
+    font-weight: bold;
+}
+.modal_wrapper div{
+    margin: 10px 0 10px 0;
+    display: inline-block;
+    width: 100%;
+}
+
 @-webkit-keyframes spin {
     0% { -webkit-transform: rotate(0deg);}
     100% {-webkit-transform: rotate(360deg);;}

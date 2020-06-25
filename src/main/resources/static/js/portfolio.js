@@ -1,5 +1,9 @@
 var app = angular.module('app', ['ngAnimate','ngSanitize', 'ui.bootstrap'])
 
+app.controller('mainController', function ($scope) {
+    $scope.version = "ver 20.06.25";
+});
+
 app.controller('projectController', function ($scope, $http, $compile, $uibModal, $filter) {
     var projects = [
         {
@@ -7,6 +11,11 @@ app.controller('projectController', function ($scope, $http, $compile, $uibModal
             title: "나누미",
             description: "다우기술 인턴 프로젝트 \n 번호 자원 관리 웹사이트 + REST API 서비스",
             image: "img/i_14.png",
+            period: "20.05.18 ~ 20.06.12",
+            subject: "인턴 프로젝트",
+            detail: "자세한 설명",
+            ability: "ㅇㅇ",
+            skills: "Java, Spring boot, Spring JWT, Hibernate JPA, MariaDB, Linux, Node.Js, VueJs, Swagger",
             info: [{
                 type: "Git Hub",
                 href: "https://github.com/HOBOOK/nanumi"
@@ -17,6 +26,11 @@ app.controller('projectController', function ($scope, $http, $compile, $uibModal
             title: "Toomo",
             description: "! 현재 진행중인 개인 프로젝트(2020-03-01~) \n 메모기능, 할일 목록 등 개인 일정관리 목적의 SPA 웹",
             image: "img/i_13.png",
+            period: "20.03.01 ~ 진행중",
+            subject: "개인 프로젝트",
+            detail: "자세한 설명",
+            ability: "ㅇㅇ",
+            skills: "Java, Spring boot, Hibernate JPA, MS-SQL, AWS, AngularJs",
             info: [{
                 type: "Git Hub",
                 href: "https://github.com/HOBOOK/tomo"
@@ -30,6 +44,11 @@ app.controller('projectController', function ($scope, $http, $compile, $uibModal
             title: "G.H.Park Portfolio Web",
             description: "포트폴리오 정리 및 설명을 위한 웹사이트",
             image: "img/i_0.png",
+            period: "20.05.18 ~ 20.06.12",
+            subject: "인턴 프로젝트",
+            detail: "자세한 설명",
+            ability: "기여하고 배운점",
+            skills: "Java, Spring boot, Spring JWT, Hibernate JPA, MariaDB, Linux, Node.Js, VueJs, Swagger",
             info: [{
                 type: "Git Hub",
                 href: "https://github.com/HOBOOK/portfolioWeb"
@@ -43,6 +62,11 @@ app.controller('projectController', function ($scope, $http, $compile, $uibModal
             title: "Silkroad ALM",
             description: "NSE 기업에서 앱 생명 관리 주기(ALM) 웹 솔루션의 파일 형상 관리 모듈 유지 보수",
             image: "img/i_4.png",
+            period: "20.05.18 ~ 20.06.12",
+            subject: "인턴 프로젝트",
+            detail: "자세한 설명",
+            ability: "기여하고 배운점",
+            skills: "Java, Spring boot, Spring JWT, Hibernate JPA, MariaDB, Linux, Node.Js, VueJs, Swagger",
             info: [{
                 type: "Link",
                 href: "http://www.nsetec.com/sub/silkroad/silkroad.html#/section-1"
@@ -53,6 +77,11 @@ app.controller('projectController', function ($scope, $http, $compile, $uibModal
             title: "Saghistory",
             description: "사진 저장과 블로그 웹사이트",
             image: "img/i_9.png",
+            period: "20.05.18 ~ 20.06.12",
+            subject: "인턴 프로젝트",
+            detail: "자세한 설명",
+            ability: "기여하고 배운점",
+            skills: "Java, Spring boot, Spring JWT, Hibernate JPA, MariaDB, Linux, Node.Js, VueJs, Swagger",
             info: [{
                 type: "Git Hub",
                 href: "https://github.com/HOBOOK/Saghistory"
@@ -66,6 +95,11 @@ app.controller('projectController', function ($scope, $http, $compile, $uibModal
             title: "두더지(Do the G)",
             description: "교내 콘텐츠 제공 웹사이트",
             image: "img/i_12.png",
+            period: "20.05.18 ~ 20.06.12",
+            subject: "인턴 프로젝트",
+            detail: "자세한 설명",
+            ability: "기여하고 배운점",
+            skills: "Java, Spring boot, Spring JWT, Hibernate JPA, MariaDB, Linux, Node.Js, VueJs, Swagger",
             info: [{
                 type: "PDF",
                 href: "http://www.ghpark.site/pdf/dotheg.pdf"
@@ -76,6 +110,11 @@ app.controller('projectController', function ($scope, $http, $compile, $uibModal
             title: "히스토아(HistoAR)",
             description: "증강현실을 이용한 역사 탐방 앱",
             image: "img/i_11.png",
+            period: "20.05.18 ~ 20.06.12",
+            subject: "인턴 프로젝트",
+            detail: "자세한 설명",
+            ability: "기여하고 배운점",
+            skills: "Java, Spring boot, Spring JWT, Hibernate JPA, MariaDB, Linux, Node.Js, VueJs, Swagger",
             info: [{
                 type: "PDF",
                 href: "http://www.ghpark.site/pdf/histoar.pdf"
@@ -86,6 +125,11 @@ app.controller('projectController', function ($scope, $http, $compile, $uibModal
             title: "개인 블로그",
             description: "알고리즘 문제 풀이 및 개발 기술 공부 기록용 블로그",
             image: "img/i_10.png",
+            period: "19.11.22 ~ 진행중",
+            subject: "학습 목적",
+            detail: "저의 개발 역량 향상과 학습 기록용으로 사용하고 있는 블로그입니다. 주로 코딩테스트 풀이를 포스팅하고, 개발중에 이해가 필요하거나 복습이 필요할 때 해당 기술에 대한 블로그를 남깁니다.",
+            ability: "",
+            skills: "",
             info: [{
                 type: "Link",
                 href: "https://blog.naver.com/pkh879"
@@ -96,6 +140,11 @@ app.controller('projectController', function ($scope, $http, $compile, $uibModal
             title: "푸시 큐브(Push Cube)",
             description: "소코반 퍼즐 형식의 안드로이드 모바일 게임",
             image: "img/i_1.png",
+            period: "20.05.18 ~ 20.06.12",
+            subject: "인턴 프로젝트",
+            detail: "자세한 설명",
+            ability: "기여하고 배운점",
+            skills: "Java, Spring boot, Spring JWT, Hibernate JPA, MariaDB, Linux, Node.Js, VueJs, Swagger",
             info: [{
                 type: "Git Hub",
                 href: "https://github.com/HOBOOK/PushCube"
@@ -113,6 +162,11 @@ app.controller('projectController', function ($scope, $http, $compile, $uibModal
             title: "플랫히어로즈(Flat Heroes)",
             description: "2D RPG 안드로이드 모바일 게임",
             image: "img/i_2.png",
+            period: "20.05.18 ~ 20.06.12",
+            subject: "인턴 프로젝트",
+            detail: "자세한 설명",
+            ability: "기여하고 배운점",
+            skills: "Java, Spring boot, Spring JWT, Hibernate JPA, MariaDB, Linux, Node.Js, VueJs, Swagger",
             info: [{
                 type: "Git Hub",
                 href: "https://github.com/HOBOOK/Flat-Heroes"
@@ -130,6 +184,11 @@ app.controller('projectController', function ($scope, $http, $compile, $uibModal
             title: "라이피(Lifee)",
             description: "힐링 장르의 방치형 3D 안드로이드 모바일 게임",
             image: "img/i_5.png",
+            period: "20.05.18 ~ 20.06.12",
+            subject: "인턴 프로젝트",
+            detail: "자세한 설명",
+            ability: "기여하고 배운점",
+            skills: "Java, Spring boot, Spring JWT, Hibernate JPA, MariaDB, Linux, Node.Js, VueJs, Swagger",
             info: [{
                 type: "Git Hub",
                 href: "https://github.com/HOBOOK/Lifee"
@@ -184,18 +243,16 @@ app.controller('projectController', function ($scope, $http, $compile, $uibModal
         return "";
     }
 
-    $scope.showModal = function($event){
-        console.log($event.target.className);
+    $scope.showModal = function($event, project){
         if($event.target.className.indexOf('block') !== -1)
             return;
-        console.log('모달창 오픈');
         var modalInstance = $uibModal.open({
             templateUrl: 'modal/modal_project',
             controller: 'ModalInstanceCtrl',
             //size: size,
             resolve: {
                 items: function () {
-                    return $scope.projects;
+                    return project;
                 }
             }
         });
@@ -214,9 +271,11 @@ app.controller('projectController', function ($scope, $http, $compile, $uibModal
 })
 
 app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
-    console.log( items);         // 위의 resolve 에서 선언한 items의 값이 넘어온 것을 확인할 수 있다.
+
+    $scope.project = items;
+    console.log($scope.project.title);
     $scope.ok = function() {
-        $uibModalInstance.close(items[0]);
+        $uibModalInstance.close(items);
     }
     $scope.cancel = function() {
         $uibModalInstance.dismiss('cancel');

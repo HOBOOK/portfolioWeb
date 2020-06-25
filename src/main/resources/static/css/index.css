@@ -365,7 +365,7 @@ p{
     transform: rotateY(20deg);
 }
 .scene{
-    min-height: 720px;
+    min-height: 100vh;
     min-width:100%;
     padding-top:60px;
     background-size: cover;

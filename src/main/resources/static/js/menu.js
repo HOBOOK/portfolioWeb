@@ -80,14 +80,6 @@ $(".menu_click, .nav_item").on("click", function (e) {
         var thisTarget = $(this).attr("href");
         var moveTarget = $(".mCSB_container");
         var topPos = $("#"+thisTarget).position().top;
-        if(-moveTarget.position().top<topPos)
-        {
-            moveTarget.animate({top:-topPos-30},500);
-        }
-        else
-        {
-            moveTarget.animate({top:-topPos+30},500);
-        }
         moveTarget.animate({top:-topPos},500);
         if(topPos>=30)
             $('.header').addClass('shrink');
